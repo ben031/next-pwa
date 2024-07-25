@@ -35,7 +35,7 @@ export default function Home() {
 
   useEffect(() => {
     // 모든 페이지를 클릭하여 네비게이션하는 작업
-    const pages = [...Array(2).keys()].map((i) => `/test${i + 1}`);
+    const pages = Array.from(Array(10).keys()).map((i) => `/page${i + 1}`);
     pages.forEach((page) => {
       fetch(page)
         .then((response) => response.text())
