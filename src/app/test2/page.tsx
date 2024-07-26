@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 const Test2 = () => {
@@ -15,6 +16,13 @@ const Test2 = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Test Page 2</h1>
+
+      <Link
+        href="/test2/inner"
+        className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Inner page
+      </Link>
       <button
         onClick={handlePopup}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
