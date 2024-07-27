@@ -7,6 +7,28 @@ const withSerwist = withSerwistInit({
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
   reloadOnOnline: true,
+  additionalPrecacheEntries: [
+    {
+      url: '/',
+      revision: crypto.randomUUID(),
+    },
+    {
+      url: '/test1',
+      revision: crypto.randomUUID(),
+    },
+    {
+      url: '/test2',
+      revision: crypto.randomUUID(),
+    },
+    {
+      url: '/test2/inner',
+      revision: crypto.randomUUID(),
+    },
+    {
+      url: '/test3',
+      revision: crypto.randomUUID(),
+    },
+  ],
 });
 
 export default withSerwist({
