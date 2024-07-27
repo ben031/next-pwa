@@ -7,7 +7,6 @@ const withSerwist = withSerwistInit({
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
   reloadOnOnline: true,
-  additionalPrecacheEntries: ['/test2', '/test1', '/', '/test2/inner'],
 });
 
 export default withSerwist({
