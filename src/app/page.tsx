@@ -94,7 +94,8 @@ export default function Home() {
       <button
         onClick={async () => {
           const db = await openDB();
-          await addData(db, 'dataSets', {
+          console.log(db);
+          await addData(db, 'myObjectStore', {
             id: 'dataA',
             name: 'namve',
             age: 12,

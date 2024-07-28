@@ -14,7 +14,7 @@ const Test3 = () => {
       const fetchData = async () => {
         try {
           const db = await openDB();
-          const result = await getData(db, 'dataSets', 'dataA');
+          const result = await getData(db, 'myObjectStore', 'dataA');
           if (result) {
             setIsAuth(true);
           }
