@@ -28,6 +28,10 @@ const withSerwist = withSerwistInit({
       url: '/test3',
       revision: crypto.randomUUID(),
     },
+    {
+      url: '/data-download',
+      revision: crypto.randomUUID(),
+    },
   ],
 });
 

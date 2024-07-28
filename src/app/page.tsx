@@ -1,52 +1,62 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cacheData, getCachedData } from '@/utils/cache';
+import { getAllCachedData, saveData } from '@/utils/indexedDB';
 
-type DataSet = {
-  id: string;
-  val1: number;
-  val2: number;
-  val3: string;
-  val4: string;
-};
+interface Dataset {
+  name: string;
+  data: any;
+}
 
-const dataSets: DataSet[] = [
-  { id: 'A', val1: 1, val2: 2, val3: 'a', val4: 'b' },
-  { id: 'B', val1: 3, val2: 4, val3: 'c', val4: 'd' },
-  { id: 'C', val1: 5, val2: 6, val3: 'e', val4: 'f' },
-  { id: 'D', val1: 7, val2: 8, val3: 'g', val4: 'h' },
-  { id: 'E', val1: 9, val2: 10, val3: 'i', val4: 'j' },
-  { id: 'F', val1: 11, val2: 12, val3: 'k', val4: 'l' },
-  { id: 'G', val1: 13, val2: 14, val3: 'm', val4: 'n' },
-];
 export default function Home() {
-  const [selectedDataSets, setSelectedDataSets] = useState<string[]>([]);
-  const [cachedData, setCachedData] = useState<DataSet[]>([]);
+  const [datasets, setDatasets] = useState<Dataset[]>([]);
+  const [isOnline, setIsOnline] = useState<boolean>(true);
 
-  const handleSelect = (id: string) => {
-    setSelectedDataSets((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
+  useEffect(() => {
+    // 네트워크 상태 감지
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
 
-  const handleDownload = async () => {
-    const cacheName = 'dynamic-data-cache';
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
 
-    // 선택된 데이터 셋 다운로드 및 캐싱
-    for (const id of selectedDataSets) {
-      const data = dataSets.find((set) => set.id === id);
-      if (data) {
-        await cacheData<DataSet>(cacheName, `/data/${id}`, data);
-      }
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOnline) {
+      // 온라인 상태에서 모든 데이터 로드
+      fetchAllData();
+    } else {
+      // 오프라인 상태에서 캐싱된 데이터 로드
+      loadCachedData();
     }
+  }, [isOnline]);
+
+  const fetchAllData = async () => {
+    const response = await fetch('/api/all-data');
+    const data = await response.json();
+    setDatasets(data);
   };
 
-  const handleShowCachedData = async () => {
-    const cacheName = 'dynamic-data-cache'; // 캐시 이름을 동적으로 설정 가능
-    const cachedData = await getCachedData<DataSet>(cacheName);
-    setCachedData(cachedData);
+  const loadCachedData = async () => {
+    const data = await getAllCachedData();
+    setDatasets(data.map((d) => ({ name: d.name, data: d.data })));
+  };
+
+  const downloadData = async (datasetName: string) => {
+    const response = await fetch(`/api/data/${datasetName}`);
+    const data = await response.json();
+    await saveData({ name: datasetName, data });
+    alert(`${datasetName} has been downloaded and cached.`);
+    if (!isOnline) {
+      loadCachedData(); // 오프라인 상태라면 캐싱된 데이터 다시 로드
+    }
   };
 
   return (
@@ -72,10 +82,16 @@ export default function Home() {
           >
             Page3
           </Link>
+          <Link
+            href="/data-download"
+            className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Data-Download
+          </Link>
         </div>
       </div>
       <h1 className="text-2xl font-bold mb-4">Select Data Sets to Download</h1>
-      {dataSets.map((data) => (
+      {/* {dataSets.map((data) => (
         <div key={data.id} className="mb-2">
           <label className="inline-flex items-center">
             <input
@@ -87,27 +103,24 @@ export default function Home() {
             <span className="ml-2 text-gray-700">Data Set {data.id}</span>
           </label>
         </div>
-      ))}
+      ))} */}
       <button
-        onClick={handleDownload}
+        onClick={() => downloadData('datasetA')}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
       >
-        데이터 다운로드
+        데이터A 다운로드
       </button>
       <button
-        onClick={handleShowCachedData}
+        onClick={() => downloadData('datasetB')}
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
       >
-        캐싱된 데이터 보기
+        데이터B 다운로드
       </button>
+      <button onClick={loadCachedData}>캐싱 데이터</button>
       <div className="mt-4">
         <h2 className="text-xl font-semibold">Cached Data</h2>
-        {cachedData.map((data) => (
-          <div key={data.id} className="mt-2 p-2 border rounded">
-            <p>
-              <strong>Data Set {data.id}</strong>: {JSON.stringify(data)}
-            </p>
-          </div>
+        {datasets.map((dataset, index) => (
+          <li key={index}>{dataset.name}</li>
         ))}
       </div>
     </main>
