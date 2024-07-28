@@ -1,7 +1,7 @@
 // lib/indexedDB.ts
 
 interface MyData {
-  id: number;
+  id: number | string;
   name: string;
   age: number;
 }

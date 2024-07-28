@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { cacheData, getCachedData } from '@/utils/cache';
+import { addData, openDB } from '@/utils/db';
 import { getAllCachedData, saveData } from '@/utils/indexedDB';
 
 interface Dataset {
@@ -90,6 +91,18 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <button
+        onClick={async () => {
+          const db = await openDB();
+          await addData(db, 'dataSets', {
+            id: 'dataA',
+            name: 'namve',
+            age: 12,
+          });
+        }}
+      >
+        add data
+      </button>
       <h1 className="text-2xl font-bold mb-4">Select Data Sets to Download</h1>
       {/* {dataSets.map((data) => (
         <div key={data.id} className="mb-2">
