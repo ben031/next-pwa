@@ -1,62 +1,67 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { cacheData, getCachedData } from '@/utils/cache';
-import { addData, openDB } from '@/utils/db';
-import { getAllCachedData, saveData } from '@/utils/indexedDB';
-
-interface Dataset {
-  name: string;
-  data: any;
-}
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setManualStatus } from '@/stores/networkSlice';
+import { RootState } from '@/stores/store';
 
 export default function Home() {
-  const [datasets, setDatasets] = useState<Dataset[]>([]);
-  const [isOnline, setIsOnline] = useState<boolean>(true);
+  const dispatch = useDispatch();
+  const manualStatus = useSelector(
+    (state: RootState) => state.network.manualStatus
+  );
 
   useEffect(() => {
-    // 네트워크 상태 감지
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
+    const handleServiceWorkerMessage = (event: MessageEvent) => {
+      if (event.data) {
+        switch (event.data.type) {
+          case 'MANUAL_STATUS_UPDATED':
+            dispatch(
+              setManualStatus(
+                (event.data.payload as boolean) ? 'offline' : 'online'
+              )
+            );
+            break;
+          default:
+            break;
+        }
+      }
+    };
+    const offlineEventListener = () => {
+      navigator.serviceWorker.controller?.postMessage({ payload: 'offline' });
+    };
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
+    window.addEventListener('offline', offlineEventListener);
+    navigator.serviceWorker.addEventListener(
+      'message',
+      handleServiceWorkerMessage
+    );
 
     return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
+      navigator.serviceWorker.removeEventListener(
+        'message',
+        handleServiceWorkerMessage
+      );
+      window.removeEventListener('offline', offlineEventListener);
     };
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    if (isOnline) {
-      // 온라인 상태에서 모든 데이터 로드
-      fetchAllData();
+  const getButtonClass = (status: string) => {
+    const baseClass = 'px-4 py-2 rounded font-semibold ';
+    if (manualStatus === status) {
+      return `${baseClass} bg-blue-500 text-white`;
     } else {
-      // 오프라인 상태에서 캐싱된 데이터 로드
-      loadCachedData();
+      return `${baseClass} bg-gray-300 text-gray-700 hover:bg-gray-400`;
     }
-  }, [isOnline]);
-
-  const fetchAllData = async () => {
-    const response = await fetch('/api/all-data');
-    const data = await response.json();
-    setDatasets(data);
   };
 
-  const loadCachedData = async () => {
-    const data = await getAllCachedData();
-    setDatasets(data.map((d) => ({ name: d.name, data: d.data })));
-  };
-
-  const downloadData = async (datasetName: string) => {
-    const response = await fetch(`/api/data/${datasetName}`);
-    const data = await response.json();
-    await saveData({ name: datasetName, data });
-    alert(`${datasetName} has been downloaded and cached.`);
-    if (!isOnline) {
-      loadCachedData(); // 오프라인 상태라면 캐싱된 데이터 다시 로드
+  const handleManualStatusChange = (status: 'online' | 'offline') => {
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: 'SET_MANUAL_STATUS',
+        payload: status,
+      });
     }
   };
 
@@ -92,17 +97,16 @@ export default function Home() {
         </div>
       </div>
       <button
-        onClick={async () => {
-          const db = await openDB();
-          console.log(db);
-          await addData(db, 'myObjectStore', {
-            id: 'dataA',
-            name: 'namve',
-            age: 12,
-          });
-        }}
+        className={getButtonClass('offline')}
+        onClick={() => handleManualStatusChange('offline')}
       >
-        add data
+        OFFLINE
+      </button>
+      <button
+        className={getButtonClass('online')}
+        onClick={() => handleManualStatusChange('online')}
+      >
+        ONLINE
       </button>
       <h1 className="text-2xl font-bold mb-4">Select Data Sets to Download</h1>
       {/* {dataSets.map((data) => (
@@ -118,25 +122,6 @@ export default function Home() {
           </label>
         </div>
       ))} */}
-      <button
-        onClick={() => downloadData('datasetA')}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
-      >
-        데이터A 다운로드
-      </button>
-      <button
-        onClick={() => downloadData('datasetB')}
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
-      >
-        데이터B 다운로드
-      </button>
-      <button onClick={loadCachedData}>캐싱 데이터</button>
-      <div className="mt-4">
-        <h2 className="text-xl font-semibold">Cached Data</h2>
-        {datasets.map((dataset, index) => (
-          <li key={index}>{dataset.name}</li>
-        ))}
-      </div>
     </main>
   );
 }

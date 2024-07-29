@@ -10,7 +10,6 @@ const Test3 = () => {
     if (navigator.onLine) {
       setIsAuth(true);
     } else {
-      console.log('offLine');
       const fetchData = async () => {
         try {
           const db = await openDB();

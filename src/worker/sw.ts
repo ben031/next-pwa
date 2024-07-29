@@ -12,7 +12,11 @@ declare global {
   }
 }
 
+const PRE_CACHE_NAME = 'serwist-percache-v2';
+
 declare const self: ServiceWorkerGlobalScope;
+
+self.skipWaiting();
 
 const serwist = new Serwist({
   precacheEntries: self.__SW_MANIFEST,
@@ -24,6 +28,80 @@ const serwist = new Serwist({
   clientsClaim: true, // 서비스 워커가 모든 열려 있는 웹 페이지에 바로 적용될지 여부를 설정
   runtimeCaching: defaultCache,
   disableDevLogs: true,
+});
+
+let isOffline = false;
+
+self.addEventListener('fetch', async (event) => {
+  event.respondWith(
+    (async () => {
+      const cache = await caches.open(PRE_CACHE_NAME);
+      if (isOffline || !navigator.onLine) {
+        const cachedResponse = await cache.match(event.request);
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+      }
+
+      // 네트워크 요청 시도
+      try {
+        const networkResponse = await fetch(event.request);
+        // 요청 성공 시 캐시에 데이터 저장
+        cache.put(event.request, networkResponse.clone());
+        return networkResponse;
+      } catch (error) {
+        // 네트워크 요청 실패 시 캐시된 데이터 반환
+        const cachedResponse = await cache.match(event.request);
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        // 모든 경우에 실패 시 기본 응답 제공 (필요에 따라 수정)
+        return new Response('Offline and no cache available', {
+          status: 503,
+          statusText: 'Service Unavailable',
+        });
+      }
+    })()
+  );
+});
+
+self.addEventListener('offline', () => {
+  isOffline = true;
+  self.clients.matchAll().then((clients) => {
+    clients.forEach((client) => {
+      client.postMessage({
+        type: 'MANUAL_STATUS_UPDATED',
+        payload: isOffline,
+      });
+    });
+  });
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data.payload === 'offline') {
+    isOffline = true;
+    self.clients.matchAll().then((clients) => {
+      clients.forEach((client) => {
+        client.postMessage({
+          type: 'MANUAL_STATUS_UPDATED',
+          payload: isOffline,
+        });
+      });
+    });
+  }
+
+  if (event.data.payload === 'online') {
+    isOffline = false;
+    self.clients.matchAll().then((clients) => {
+      clients.forEach((client) => {
+        client.postMessage({
+          type: 'MANUAL_STATUS_UPDATED',
+          payload: isOffline,
+        });
+      });
+    });
+  }
 });
 
 serwist.addEventListeners();
