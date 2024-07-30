@@ -44,12 +44,13 @@ const request = async <T = any>({
   const params = queryParams
     ? `?${qs.stringify(queryParams, { arrayFormat: 'brackets' })}`
     : '';
-  const fullUrl = `${baseURL}${url}${params}`;
+  const fullUrl = `${url}${params}`;
 
   const fetchConfig: RequestInit = {
     method,
     headers,
     body: requestBody ? JSON.stringify(requestBody) : undefined,
+    mode: 'no-cors',
     ...config,
   };
 

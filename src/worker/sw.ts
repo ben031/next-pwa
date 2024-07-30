@@ -36,8 +36,6 @@ const queue = new BackgroundSyncQueue('myQueueName');
 
 self.addEventListener('fetch', async (event) => {
   if (event.request.method === 'POST' || event.request.method === 'PUT') {
-    console.log('PUT~!!!!');
-
     const backgroundSync = async () => {
       try {
         const response = await fetch(event.request.clone());
@@ -99,8 +97,6 @@ self.addEventListener('offline', () => {
 });
 
 self.addEventListener('message', (event) => {
-  console.log('test >>>>>>>>');
-
   if (event.data.payload === 'offline') {
     isOffline = true;
     self.clients.matchAll().then((clients) => {
@@ -126,6 +122,7 @@ self.addEventListener('message', (event) => {
   }
 });
 
+// 온라인 전환시 POST, PUT 메서드 queue 실행(TODO: 온라인 전환하는 이벤트로 내부 처리 옮겨야 함)
 self.addEventListener('sync', (event) => {
   if (event.tag === 'myQueueName') {
     event.waitUntil(

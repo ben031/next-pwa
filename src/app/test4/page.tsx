@@ -25,6 +25,7 @@ const Test4 = () => {
     }
   };
 
+  // 임시 input 데이터 핸들링
   const handleChangeDatasets = (key: string, id: number, title: string) => {
     setDownloadDatasetsRenderer((prev) => {
       return prev.map((item) =>
@@ -39,12 +40,18 @@ const Test4 = () => {
       );
     });
   };
+
   const handleEdit = async (key: string) => {
     await cacheData('selected-datasets', '/', downloadDatasetsRenderer);
-    updateDatasets(
-      key,
-      downloadDatasetsRenderer.find((item) => item[0] === key)?.[1] || []
-    );
+    try {
+      await updateDatasets(
+        key,
+        downloadDatasetsRenderer.find((item) => item[0] === key)?.[1] || []
+      );
+    } catch (e) {
+      // TODO: 에러 핸들링
+      console.log('e >>>>', e);
+    }
   };
 
   useEffect(() => {
@@ -55,11 +62,11 @@ const Test4 = () => {
     window.addEventListener('offline', handleOffline);
 
     setIsOfflineMode(!window.navigator.onLine);
+
+    // 오프라인인 경우 캐시 데이터 불러오기(저장 및 수정 메서드에서 캐시 업데이트 진행중)
     if (!window.navigator.onLine) {
       const syncOfflineCacheData = async () => {
         const data = await getCachedData('selected-datasets');
-
-        console.log('data >>>', data);
 
         setDownloadDatasetsRenderer((data?.[0] as any) || []);
       };
@@ -95,8 +102,6 @@ const Test4 = () => {
 
     setDownload();
   }, [downloadDatasets]);
-
-  console.log('downloadDatasetsRenderer >>>', downloadDatasetsRenderer);
 
   return (
     <div className="p-5 flex flex-col gap-3">
