@@ -7,7 +7,7 @@ const withSerwist = withSerwistInit({
   swSrc: 'src/worker/sw.ts',
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
-  reloadOnOnline: true,
+  reloadOnOnline: false,
   additionalPrecacheEntries: [
     {
       url: '/',

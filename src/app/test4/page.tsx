@@ -1,12 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDatasets, updateDatasets } from '@/apis/datasets';
+import { setManualStatus } from '@/stores/networkSlice';
+import { RootState } from '@/stores/store';
 import { cacheData, getCachedData } from '@/utils/cache';
 
 const DATASETS = ['a', 'b', 'c', 'd', 'e', 'f'];
 
 const Test4 = () => {
+  const dispatch = useDispatch();
+  const manualStatus = useSelector(
+    (state: RootState) => state.network.manualStatus
+  );
+
   const [isOfflineMode, setIsOfflineMode] = useState(false);
 
   const [selectedDatasets, setSelectedDatasets] = useState<string[]>([]);
@@ -54,31 +62,33 @@ const Test4 = () => {
     }
   };
 
+  const getButtonClass = (status: string) => {
+    const baseClass = 'px-4 py-2 rounded font-semibold ';
+    if (manualStatus === status) {
+      return `${baseClass} bg-blue-500 text-white`;
+    } else {
+      return `${baseClass} bg-gray-300 text-gray-700 hover:bg-gray-400`;
+    }
+  };
+  const handleManualStatusChange = (status: 'online' | 'offline') => {
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: 'SET_MANUAL_STATUS',
+        payload: status,
+      });
+    }
+  };
+
   useEffect(() => {
-    const handleOnline = () => setIsOfflineMode(false);
-    const handleOffline = () => setIsOfflineMode(true);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    setIsOfflineMode(!window.navigator.onLine);
-
     // 오프라인인 경우 캐시 데이터 불러오기(저장 및 수정 메서드에서 캐시 업데이트 진행중)
-    if (!window.navigator.onLine) {
+    if (manualStatus === 'offline') {
       const syncOfflineCacheData = async () => {
         const data = await getCachedData('selected-datasets');
-
         setDownloadDatasetsRenderer((data?.[0] as any) || []);
       };
-
       syncOfflineCacheData();
     }
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
+  }, [manualStatus]);
 
   useEffect(() => {
     if (!downloadDatasets.length) {
@@ -103,10 +113,68 @@ const Test4 = () => {
     setDownload();
   }, [downloadDatasets]);
 
+  useEffect(() => {
+    const handleServiceWorkerMessage = (event: MessageEvent) => {
+      if (event.data) {
+        switch (event.data.type) {
+          case 'MANUAL_STATUS_UPDATED':
+            dispatch(
+              setManualStatus(
+                (event.data.payload as boolean) ? 'offline' : 'online'
+              )
+            );
+            break;
+          default:
+            break;
+        }
+      }
+    };
+    const offlineEventListener = () => {
+      console.log('offline ?????>>>>');
+
+      navigator.serviceWorker.controller?.postMessage({ payload: 'offline' });
+    };
+    const onlineEventListener = () => {
+      console.log('online ?????>>>>');
+
+      navigator.serviceWorker.controller?.postMessage({ payload: 'online' });
+    };
+
+    window.addEventListener('online', onlineEventListener);
+    window.addEventListener('offline', offlineEventListener);
+    navigator.serviceWorker.addEventListener(
+      'message',
+      handleServiceWorkerMessage
+    );
+
+    return () => {
+      navigator.serviceWorker.removeEventListener(
+        'message',
+        handleServiceWorkerMessage
+      );
+      window.removeEventListener('online', onlineEventListener);
+      window.removeEventListener('offline', offlineEventListener);
+    };
+  }, [dispatch]);
+
   return (
     <div className="p-5 flex flex-col gap-3">
-      <h2 className="mb-3">MODE : {isOfflineMode ? 'offline' : 'online'}</h2>
-      {!isOfflineMode && (
+      <h2 className="mb-3">MODE : manualStatus</h2>
+      <div>
+        <button
+          className={getButtonClass('offline')}
+          onClick={() => handleManualStatusChange('offline')}
+        >
+          OFFLINE
+        </button>
+        <button
+          className={getButtonClass('online')}
+          onClick={() => handleManualStatusChange('online')}
+        >
+          ONLINE
+        </button>
+      </div>
+      {manualStatus !== 'offline' && (
         <form
           className="p-5 border rounded-lg"
           style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
