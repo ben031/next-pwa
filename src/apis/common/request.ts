@@ -50,7 +50,6 @@ const request = async <T = any>({
     method,
     headers,
     body: requestBody ? JSON.stringify(requestBody) : undefined,
-    mode: 'no-cors',
     ...config,
   };
 
