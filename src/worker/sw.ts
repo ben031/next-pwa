@@ -32,10 +32,19 @@ const serwist = new Serwist({
 
 let isOffline = false;
 
-const queue = new BackgroundSyncQueue('myQueueName');
+const queue = new BackgroundSyncQueue('myQueueName', {
+  onSync: () => {},
+});
 
 self.addEventListener('fetch', async (event) => {
+  const offlineMode = event.request.headers.get('offline-mode');
+
   if (event.request.method === 'POST' || event.request.method === 'PUT') {
+    if (offlineMode === 'true') {
+      await queue.pushRequest({ request: event.request });
+      return Response.error();
+    }
+
     const backgroundSync = async () => {
       try {
         const response = await fetch(event.request.clone());
@@ -119,12 +128,7 @@ self.addEventListener('message', (event) => {
         });
       });
     });
-  }
-});
 
-// 온라인 전환시 POST, PUT 메서드 queue 실행(TODO: 온라인 전환하는 이벤트로 내부 처리 옮겨야 함)
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'myQueueName') {
     event.waitUntil(
       queue
         .replayRequests()
@@ -137,5 +141,21 @@ self.addEventListener('sync', (event) => {
     );
   }
 });
+
+// 온라인 전환시 POST, PUT 메서드 queue 실행(TODO: 온라인 전환하는 이벤트로 내부 처리 옮겨야 함)
+// self.addEventListener('sync', (event) => {
+//   if (event.tag === 'myQueueName') {
+//     event.waitUntil(
+//       queue
+//         .replayRequests()
+//         .then(() => {
+//           console.log('All queued requests have been replayed');
+//         })
+//         .catch((error) => {
+//           console.error('Failed to replay queued requests', error);
+//         })
+//     );
+//   }
+// });
 
 serwist.addEventListeners();

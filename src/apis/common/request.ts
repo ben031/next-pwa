@@ -1,5 +1,6 @@
 import qs from 'qs';
 import { APIError } from '@/apis/common/ApiError';
+import { store } from '@/stores/store';
 
 interface FetchParams {
   method: Method;
@@ -32,6 +33,8 @@ const request = async <T = any>({
   url,
   config = {},
 }: FetchParams): Promise<T> => {
+  const storeState = store.getState();
+
   const token =
     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjE3NiwiYWNjb3VudEhpc3RvcnlJZCI6MjQyNywic2VydmljZSI6IkJPU19XRUIiLCJpYXQiOjE3MjIyMTQ3OTR9.-VVhi0WEw2dP4TOWRTLOc093E9Bu9F5hYRjaTGsmGMY';
 
@@ -39,6 +42,9 @@ const request = async <T = any>({
     ...defaultHeaders,
     ...config.headers,
     ...(token ? { Authorization: token } : {}),
+    ...(storeState?.network.manualStatus === 'online'
+      ? {}
+      : { 'offline-mode': 'true' }),
   };
 
   const params = queryParams
@@ -53,7 +59,18 @@ const request = async <T = any>({
     ...config,
   };
 
-  const response = await fetch(fullUrl, fetchConfig);
+  const controller = new AbortController();
+
+  if (storeState?.network.manualStatus !== 'online') {
+    setTimeout(() => {
+      controller.abort();
+    }, 1);
+  }
+
+  const response = await fetch(fullUrl, {
+    ...fetchConfig,
+    signal: controller.signal,
+  });
 
   if (!response.ok) {
     handleResponseError(response);
