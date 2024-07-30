@@ -1,6 +1,6 @@
 import { defaultCache } from '@serwist/next/worker';
 import type { PrecacheEntry, SerwistGlobalConfig } from 'serwist';
-import { Serwist } from 'serwist';
+import { BackgroundSyncQueue, Serwist } from 'serwist';
 
 // This declares the value of `injectionPoint` to TypeScript.
 // `injectionPoint` is the string that will be replaced by the
@@ -32,7 +32,27 @@ const serwist = new Serwist({
 
 let isOffline = false;
 
+const queue = new BackgroundSyncQueue('myQueueName');
+
 self.addEventListener('fetch', async (event) => {
+  if (event.request.method === 'POST' || event.request.method === 'PUT') {
+    console.log('PUT~!!!!');
+
+    const backgroundSync = async () => {
+      try {
+        const response = await fetch(event.request.clone());
+        return response;
+      } catch (error) {
+        await queue.pushRequest({ request: event.request });
+        return Response.error();
+      }
+    };
+
+    event.respondWith(backgroundSync());
+
+    return;
+  }
+
   event.respondWith(
     (async () => {
       const cache = await caches.open(PRE_CACHE_NAME);
@@ -79,6 +99,8 @@ self.addEventListener('offline', () => {
 });
 
 self.addEventListener('message', (event) => {
+  console.log('test >>>>>>>>');
+
   if (event.data.payload === 'offline') {
     isOffline = true;
     self.clients.matchAll().then((clients) => {
@@ -101,6 +123,21 @@ self.addEventListener('message', (event) => {
         });
       });
     });
+  }
+});
+
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'myQueueName') {
+    event.waitUntil(
+      queue
+        .replayRequests()
+        .then(() => {
+          console.log('All queued requests have been replayed');
+        })
+        .catch((error) => {
+          console.error('Failed to replay queued requests', error);
+        })
+    );
   }
 });
 

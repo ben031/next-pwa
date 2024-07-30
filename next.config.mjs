@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import withSerwistInit from '@serwist/next';
 
 const withSerwist = withSerwistInit({
