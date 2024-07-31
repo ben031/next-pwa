@@ -1,5 +1,4 @@
 import request from '@/apis/common/request';
-import { updateData } from '@/app/api/datasets/mockData';
 
 const URL = {
   getDatasets: '/api/datasets',
@@ -20,5 +19,4 @@ export const updateDatasets = async (key: string, data: any[]) => {
     url: `${URL.getDatasets}/${key}`,
     requestBody: data,
   });
-  //   updateData(key as 'a', data as never[]);
 };

@@ -115,19 +115,6 @@ export default function Home() {
         ONLINE
       </button>
       <h1 className="text-2xl font-bold mb-4">Select Data Sets to Download</h1>
-      {/* {dataSets.map((data) => (
-        <div key={data.id} className="mb-2">
-          <label className="inline-flex items-center">
-            <input
-              type="checkbox"
-              className="form-checkbox h-5 w-5 text-blue-600"
-              value={data.id}
-              onChange={() => handleSelect(data.id)}
-            />
-            <span className="ml-2 text-gray-700">Data Set {data.id}</span>
-          </label>
-        </div>
-      ))} */}
     </main>
   );
 }

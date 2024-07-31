@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Test1 = () => {
   const [result, setResult] = useState<number | null>(null);

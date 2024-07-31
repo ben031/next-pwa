@@ -2,8 +2,6 @@ import crypto from 'crypto';
 import withSerwistInit from '@serwist/next';
 
 const withSerwist = withSerwistInit({
-  // Note: This is only an example. If you use Pages Router,
-  // use something else that works, such as "service-worker/index.ts".
   swSrc: 'src/worker/sw.ts',
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
@@ -23,10 +21,6 @@ const withSerwist = withSerwistInit({
     },
     {
       url: '/test2/inner',
-      revision: crypto.randomUUID(),
-    },
-    {
-      url: '/test3',
       revision: crypto.randomUUID(),
     },
     {

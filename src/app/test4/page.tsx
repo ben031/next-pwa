@@ -15,8 +15,6 @@ const Test4 = () => {
     (state: RootState) => state.network.manualStatus
   );
 
-  const [isOfflineMode, setIsOfflineMode] = useState(false);
-
   const [selectedDatasets, setSelectedDatasets] = useState<string[]>([]);
   const [downloadDatasets, setDownloadDatasets] = useState<any[]>([]);
   const [downloadDatasetsRenderer, setDownloadDatasetsRenderer] = useState<
@@ -130,13 +128,9 @@ const Test4 = () => {
       }
     };
     const offlineEventListener = () => {
-      console.log('offline ?????>>>>');
-
       navigator.serviceWorker.controller?.postMessage({ payload: 'offline' });
     };
     const onlineEventListener = () => {
-      console.log('online ?????>>>>');
-
       navigator.serviceWorker.controller?.postMessage({ payload: 'online' });
     };
 

@@ -12,7 +12,6 @@ interface FetchParams {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-const baseURL = process.env.NEXT_PUBLIC_ROOT_URL;
 const defaultHeaders = {
   'Access-Control-Allow-Origin': '*',
 };
