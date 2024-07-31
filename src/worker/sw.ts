@@ -142,20 +142,4 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// 온라인 전환시 POST, PUT 메서드 queue 실행(TODO: 온라인 전환하는 이벤트로 내부 처리 옮겨야 함)
-// self.addEventListener('sync', (event) => {
-//   if (event.tag === 'myQueueName') {
-//     event.waitUntil(
-//       queue
-//         .replayRequests()
-//         .then(() => {
-//           console.log('All queued requests have been replayed');
-//         })
-//         .catch((error) => {
-//           console.error('Failed to replay queued requests', error);
-//         })
-//     );
-//   }
-// });
-
 serwist.addEventListeners();
