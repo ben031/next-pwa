@@ -20,6 +20,10 @@ const withSerwist = withSerwistInit({
       revision: crypto.randomUUID(),
     },
     {
+      url: '/test4',
+      revision: crypto.randomUUID(),
+    },
+    {
       url: '/test2/inner',
       revision: crypto.randomUUID(),
     },
