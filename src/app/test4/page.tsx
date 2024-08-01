@@ -60,20 +60,21 @@ const Test4 = () => {
     }
   };
 
-  const getButtonClass = (status: string) => {
-    const baseClass = 'px-4 py-2 rounded font-semibold ';
-    if (manualStatus === status) {
-      return `${baseClass} bg-blue-500 text-white`;
-    } else {
-      return `${baseClass} bg-gray-300 text-gray-700 hover:bg-gray-400`;
-    }
-  };
   const handleManualStatusChange = (status: 'online' | 'offline') => {
     if (navigator.serviceWorker.controller) {
       navigator.serviceWorker.controller.postMessage({
         type: 'SET_MANUAL_STATUS',
         payload: status,
       });
+    }
+  };
+
+  const getButtonClass = (status: string) => {
+    const baseClass = 'px-4 py-2 rounded font-semibold ';
+    if (manualStatus === status) {
+      return `${baseClass} bg-blue-500 text-white`;
+    } else {
+      return `${baseClass} bg-gray-300 text-gray-700 hover:bg-gray-400`;
     }
   };
 
@@ -154,6 +155,11 @@ const Test4 = () => {
   return (
     <div className="p-5 flex flex-col gap-3">
       <h2 className="mb-3">MODE : manualStatus</h2>
+
+      <div className="text-xl font-semibold pt-2">
+        현재 상태 : {manualStatus}
+      </div>
+
       <div>
         <button
           className={getButtonClass('offline')}

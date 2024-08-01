@@ -90,6 +90,11 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      <div className="text-xl font-semibold pt-2">
+        현재 상태 : {manualStatus}
+      </div>
+
       <button
         className={getButtonClass('offline')}
         onClick={() => handleManualStatusChange('offline')}
@@ -102,7 +107,6 @@ export default function Home() {
       >
         ONLINE
       </button>
-      <h1 className="text-2xl font-bold mb-4">Select Data Sets to Download</h1>
     </main>
   );
 }
