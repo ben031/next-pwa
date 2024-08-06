@@ -169,7 +169,7 @@ const Test4 = () => {
         </button>
         <button
           className={getButtonClass('online')}
-          onClick={() => handleManualStatusChange('online')}
+          onClick={() => navigator.onLine && handleManualStatusChange('online')}
         >
           ONLINE
         </button>

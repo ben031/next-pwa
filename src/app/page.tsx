@@ -31,8 +31,13 @@ export default function Home() {
     const offlineEventListener = () => {
       navigator.serviceWorker.controller?.postMessage({ payload: 'offline' });
     };
+    const onlineEventListener = () => {
+      navigator.serviceWorker.controller?.postMessage({ payload: 'online' });
+    };
 
     window.addEventListener('offline', offlineEventListener);
+    window.addEventListener('online', onlineEventListener);
+
     navigator.serviceWorker.addEventListener(
       'message',
       handleServiceWorkerMessage
@@ -44,6 +49,7 @@ export default function Home() {
         handleServiceWorkerMessage
       );
       window.removeEventListener('offline', offlineEventListener);
+      window.removeEventListener('offline', onlineEventListener);
     };
   }, [dispatch]);
 
@@ -103,7 +109,7 @@ export default function Home() {
       </button>
       <button
         className={getButtonClass('online')}
-        onClick={() => handleManualStatusChange('online')}
+        onClick={() => navigator.onLine && handleManualStatusChange('online')}
       >
         ONLINE
       </button>

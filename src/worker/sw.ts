@@ -55,6 +55,34 @@ self.addEventListener('fetch', async (event) => {
 
     return;
   }
+
+  if (isOffline || !navigator.onLine) {
+    event.respondWith(
+      (async () => {
+        try {
+          const { route, params } = serwist.findMatchingRoute({
+            url: new URL(event.request.url),
+            event: event,
+            request: event.request,
+            sameOrigin: new URL(event.request.url).origin === location.origin,
+          });
+
+          if (route) {
+            return route.handler.handle({
+              event,
+              params,
+              request: event.request,
+              url: new URL(event.request.url),
+            });
+          }
+
+          return Response.error();
+        } catch (e) {
+          return Response.error();
+        }
+      })()
+    );
+  }
 });
 
 self.addEventListener('offline', () => {
