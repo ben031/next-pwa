@@ -1,71 +1,78 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTransformConfigData } from '@/hooks/useTransformConfigData';
+
 const WebSerialPage = () => {
-  const [port, setPort] = useState<any>(null);
-  const [usbDevice, setUsbDevice] = useState<USBDevice | null>(null);
+  const [port, setPort] = useState<SerialPort | null>(null);
   const [output, setOutput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [jsonData, setJsonData] = useState<any>();
+  // console.log(jsonData);
+  const transformedData = useTransformConfigData(jsonData?.synctrak);
+  console.log(transformedData);
 
-  const connectDevice = async () => {
-    try {
-      const getDevice = await navigator.usb.getDevices();
-      console.log(getDevice);
-      const device = await navigator.usb.requestDevice({ filters: [{}] });
-      console.log('Device  here ->', device);
-      setUsbDevice(device);
-    } catch (error) {
-      console.log(error);
+  const sendCommand = async (command: string) => {
+    console.log(command);
+    if (port) {
+      console.log(command);
+      const encoder = new TextEncoder();
+      const writer = await port.writable.getWriter();
+      console.log(writer);
+      await writer.write(encoder.encode(command + '\r'));
+      writer.releaseLock();
     }
   };
 
-  const openAndConfigureDeivce = async () => {
-    if (!usbDevice) return;
+  const connectSerial = async () => {
     try {
-      await usbDevice.open();
-      console.log(usbDevice);
-      if (usbDevice.configuration === null)
-        await usbDevice.selectConfiguration(1);
-      await usbDevice.claimInterface(0);
+      // 직렬 포트 선택
+      const selectedPort = await navigator.serial.requestPort();
+      await selectedPort.open({ baudRate: 115200 });
+      setPort(selectedPort);
+      console.log('Serial port opened');
 
-      console.log('Device configured');
-      console.log('opened!');
+      // 데이터 읽기
+      const reader = selectedPort.readable.getReader();
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) {
+          break;
+        }
+        console.log(new TextDecoder().decode(value));
+        setOutput((prevOutput) => prevOutput + new TextDecoder().decode(value));
+      }
     } catch (error) {
-      console.log(error);
+      console.error('There was an error opening the serial port:', error);
     }
   };
 
-  const sendCommand = async (command: string) => {};
+  const disconnectSerial = async () => {
+    if (port) {
+      await port.close();
+      setPort(null);
+      console.log('Serial port closed');
+    }
+  };
 
-  const disconnectSerial = async () => {};
+  const jsonParsing = async () => {};
 
   useEffect(() => {
-    async function connectToDevice() {
-      try {
-        const device = await navigator.usb.requestDevice({ filters: [] });
-        await device.open();
-        if (device.configuration === null) {
-          await device.selectConfiguration(1);
-        }
-        await device.claimInterface(0);
-        console.log('Device connected:', device);
-        // 이후에 데이터를 읽고 처리하는 로직 추가
-      } catch (error) {
-        console.error('Failed to connect to USB device:', error);
-      }
-    }
-
-    connectToDevice();
+    // 클라이언트 사이드에서 JSON 파일을 가져옴
+    fetch('/data/data.json')
+      .then((response) => response.json())
+      .then((data) => setJsonData(data));
   }, []);
+
+  if (!transformedData.length) {
+    return <div>Loading...</div>; // 데이터가 로드될 때까지 로딩 표시
+  }
 
   return (
     <>
       Web Serial Page
       <div>
-        <button onClick={connectDevice}>Connect Serial</button>
-      </div>
-      <div>
-        <button onClick={openAndConfigureDeivce}>Open Device</button>
+        <button onClick={connectSerial}>Connect Device</button>
       </div>
       <div>
         <button onClick={() => sendCommand('AT^$PSTVer;1234')}>
@@ -86,7 +93,34 @@ const WebSerialPage = () => {
         <button onClick={disconnectSerial}>Disconnect</button>
       </div>
       <pre>{output}</pre>
-      <pre>{isLoading ? 'is Loading..' : 'is not Loading'}</pre>
+      <h1>JSON Data</h1>
+      <div>
+        {transformedData.map((tab, tabIndex) => (
+          <div key={tabIndex}>
+            <h2>{tab.tabName}</h2>
+            {tab.fields.map((field, fieldIndex) => (
+              <div key={fieldIndex}>
+                <label>{field.fieldName}</label>
+                {field.type === 'combo' ? (
+                  <select defaultValue={field.value}>
+                    {field.options.map((option, optionIndex) => (
+                      <option key={optionIndex} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    type="text"
+                    defaultValue={field.value}
+                    maxLength={field.max}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </>
   );
 };

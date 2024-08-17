@@ -1,0 +1,4401 @@
+{
+  "synctrak": [
+    {
+      "info": [
+        {
+          "S": "ST4300",
+          "I": "1231231231",
+          "P": "02",
+          "V": "2.0.32",
+          "R": "Res",
+          "D": ";",
+          "cmd": "SHDIDPDC",
+          "res": "SDRDHDIDC",
+          "lat": "37.479338",
+          "lng": "126.887813",
+          "dmax": "100"
+        }
+      ]
+    },
+    {
+      "Network Parameters": [
+        {
+          "info": [
+            {
+              "id": "0",
+              "tab_id": "10",
+              "visible": "1",
+              "hdr": "NTW",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Authentication(1000)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Automatic",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;PAP;0;2",
+                  "1": "1;CHAP;0;2",
+                  "2": "2;Automatic;0;2",
+                  "3": "3;None;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "APN(1001)": [
+            { "type": "edit", "ID": "1", "value": "", "max": "100" }
+          ]
+        },
+        {
+          "User ID(1002)": [
+            { "type": "edit", "ID": "2", "value": "", "max": "32" }
+          ]
+        },
+        {
+          "User Password(1003)": [
+            { "type": "edit", "ID": "3", "value": "", "max": "32" }
+          ]
+        },
+        {
+          "PIN Number(1004)": [
+            { "type": "edit", "ID": "4", "value": "0000", "max": "8" }
+          ]
+        },
+        {
+          "Server IP(1005)": [
+            { "type": "ip", "ID": "5", "value": "211.118.107.218", "max": "64" }
+          ]
+        },
+        {
+          "Server Port(1006)": [
+            { "type": "edit", "ID": "6", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Server Type(1007)": [
+            {
+              "type": "combo",
+              "ID": "7",
+              "value": "TCP",
+              "num": "2",
+              "list": [{ "0": "0;TCP;0;2", "1": "1;UDP;0;2" }]
+            }
+          ]
+        },
+        {
+          "Backup Server IP(1008)": [
+            { "type": "ip", "ID": "8", "value": "0.0.0.0", "max": "64" }
+          ]
+        },
+        {
+          "Backup Server Port(1009)": [
+            { "type": "edit", "ID": "9", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Backup Server Type(1010)": [
+            {
+              "type": "combo",
+              "ID": "10",
+              "value": "TCP",
+              "num": "2",
+              "list": [{ "0": "0;TCP;0;2", "1": "1;UDP;0;2" }]
+            }
+          ]
+        },
+        {
+          "UDP ACK(1011)": [
+            { "type": "edit", "ID": "11", "value": "0", "max": "10" }
+          ]
+        },
+        {
+          "Device Port(1012)": [
+            { "type": "edit", "ID": "12", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Connection Type(1013)": [
+            {
+              "type": "combo",
+              "ID": "13",
+              "value": "Keep Connected",
+              "num": "2",
+              "list": [
+                { "0": "0;Keep Connected;0;2", "1": "1;Close Connection;0;2" }
+              ]
+            }
+          ]
+        },
+        {
+          "Keep Alive Interval(Min.)(1060)": [
+            { "type": "edit", "ID": "60", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "TCP Keep Alive(1070)": [
+            {
+              "type": "combo",
+              "ID": "70",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "TCP Keep Alive Idle Time(Sec.)(1071)": [
+            { "type": "edit", "ID": "71", "value": "150", "max": "4" }
+          ]
+        },
+        {
+          "Jamming Detection(1061)": [
+            {
+              "type": "combo",
+              "ID": "61",
+              "value": "Disable",
+              "num": "6",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Alert;0;2",
+                  "2": "2;Alert with Imob.;0;2",
+                  "3": "3;Alert with Buzzer;0;2",
+                  "4": "4;Alert with Buzzer and Immob.;0;2",
+                  "5": "5;Jamming Cycle;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Check distance for jamming(Meter.)(1062)": [
+            { "type": "edit", "ID": "62", "value": "500", "max": "5" }
+          ]
+        },
+        {
+          "Check no GPS duration for jamming(Sec.)(1063)": [
+            { "type": "edit", "ID": "63", "value": "300", "max": "5" }
+          ]
+        },
+        {
+          "Interval for Jamming Alert Step1(Sec.)(1065)": [
+            { "type": "edit", "ID": "65", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Interval for Jamming Alert Step2(Sec.)(1066)": [
+            { "type": "edit", "ID": "66", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Interval for Jamming Alert Step3(Sec.)(1067)": [
+            { "type": "edit", "ID": "67", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Interval for Jamming Alert Step4(Sec.)(1068)": [
+            { "type": "edit", "ID": "68", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Scanning Band Mode(1016)": [
+            {
+              "type": "combo",
+              "ID": "16",
+              "value": "Global(Roaming)",
+              "num": "2",
+              "list": [
+                { "0": "0;Global(Roaming);0;2", "1": "1;Country(Mexico);0;2" }
+              ]
+            }
+          ]
+        },
+        {
+          "SAT OUT(1052)": [
+            {
+              "type": "combo",
+              "ID": "52",
+              "value": "Disable",
+              "num": "5",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;SAT 1;0;2",
+                  "2": "2;SAT 2;0;2",
+                  "3": "3;SAT 3;0;2",
+                  "4": "4;SAT 4;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "SAT Delay(Sec.)(1053)": [
+            { "type": "edit", "ID": "53", "value": "20", "max": "5" }
+          ]
+        },
+        {
+          "Scan Mode(1054)": [
+            {
+              "type": "combo",
+              "ID": "54",
+              "value": "Cat M1 & GSM",
+              "num": "5",
+              "list": [
+                {
+                  "0": "0;Only Cat M1;0;2",
+                  "1": "1;Cat M1 & GSM;0;2",
+                  "2": "2;Only NB1;0;2",
+                  "3": "3;Cat M1 & NB1;0;2",
+                  "4": "4;Cat M1, NB1 & GSM;0;2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Report Config/Setting": [
+        {
+          "info": [
+            {
+              "id": "1",
+              "tab_id": "10",
+              "visible": "1",
+              "hdr": "RPT",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "ZIP(1055)": [
+            {
+              "type": "combo",
+              "ID": "55",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Command Response Direction(1058)": [
+            {
+              "type": "combo",
+              "ID": "58",
+              "value": "No Use",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;No Use;0;2",
+                  "1": "1;Server;0;2",
+                  "2": "2;SMS;0;2",
+                  "3": "3;Both;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Speed above alerting by Buzzer(1064)": [
+            {
+              "type": "combo",
+              "ID": "64",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Delay of Anti Theft Release(Sec.)(1050)": [
+            { "type": "edit", "ID": "50", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "Delay of Anti Theft Alert(Sec.)(1051)": [
+            { "type": "edit", "ID": "51", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "AES128(1072)": [
+            {
+              "type": "combo",
+              "ID": "72",
+              "value": "Disable",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Reserved;0;2",
+                  "2": "2;User Enc. Key;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AES128 Key(1073)": [
+            { "type": "edit", "ID": "73", "value": "", "max": "32" }
+          ]
+        }
+      ]
+    },
+    {
+      "SMS": [
+        {
+          "info": [
+            {
+              "id": "3",
+              "tab_id": "10",
+              "visible": "1",
+              "hdr": "GSM",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "SMS Number(1025)": [
+            { "type": "edit", "ID": "25", "value": "", "max": "20" }
+          ]
+        },
+        {
+          "SMS Lock(1030)": [
+            {
+              "type": "combo",
+              "ID": "30",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "SMS MT1(1031)": [
+            { "type": "edit", "ID": "31", "value": "", "max": "20" }
+          ]
+        },
+        {
+          "SMS MT2(1032)": [
+            { "type": "edit", "ID": "32", "value": "", "max": "20" }
+          ]
+        },
+        {
+          "SMS MT3(1033)": [
+            { "type": "edit", "ID": "33", "value": "", "max": "20" }
+          ]
+        },
+        {
+          "SMS MT4(1034)": [
+            { "type": "edit", "ID": "34", "value": "", "max": "20" }
+          ]
+        }
+      ]
+    },
+    {
+      "Accelerometer": [
+        {
+          "info": [
+            {
+              "id": "15",
+              "tab_id": "19",
+              "visible": "1",
+              "hdr": "DPA",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Motion Sensor(1900)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Disable",
+              "num": "8",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Motion;0;2",
+                  "2": "2;Shock;0;2",
+                  "3": "3;Motion+Shock;0;2",
+                  "4": "4;Collision;0;2",
+                  "5": "5;Motion+Collision;0;2",
+                  "6": "6;Shock+Collision;0;2",
+                  "7": "7;All Enable;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Motion Threshold(1901)": [
+            { "type": "edit", "ID": "1", "value": "0.06", "max": "4" }
+          ]
+        },
+        {
+          "Shock Detection Delay(Sec.)(1902)": [
+            { "type": "edit", "ID": "2", "value": "600", "max": "5" }
+          ]
+        },
+        {
+          "Shock Threshold(1903)": [
+            { "type": "edit", "ID": "3", "value": "0.70", "max": "4" }
+          ]
+        },
+        {
+          "Collision Threshold(1904)": [
+            { "type": "edit", "ID": "4", "value": "1.50", "max": "4" }
+          ]
+        },
+        {
+          "Driver Pattern Function(1910)": [
+            {
+              "type": "combo",
+              "ID": "10",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "DP - Fast Accel(1912)": [
+            { "type": "edit", "ID": "12", "value": "10.0", "max": "4" }
+          ]
+        },
+        {
+          "DP - Harsh Brake(1913)": [
+            { "type": "edit", "ID": "13", "value": "20.0", "max": "4" }
+          ]
+        },
+        {
+          "DP - Sharp Turn(1914)": [
+            { "type": "edit", "ID": "14", "value": "40.0", "max": "4" }
+          ]
+        },
+        {
+          "DP - Accel Speed(1921)": [
+            { "type": "edit", "ID": "21", "value": "10.0", "max": "4" }
+          ]
+        },
+        {
+          "DP - Brake Speed(1922)": [
+            { "type": "edit", "ID": "22", "value": "10.0", "max": "4" }
+          ]
+        },
+        {
+          "DP - Turn Speed(1923)": [
+            { "type": "edit", "ID": "23", "value": "10.0", "max": "4" }
+          ]
+        },
+        {
+          "DPA Buzzer Enable(1924)": [
+            {
+              "type": "combo",
+              "ID": "24",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "DPA Buzzer Time(Sec.)(1925)": [
+            { "type": "edit", "ID": "25", "value": "0", "max": "4" }
+          ]
+        }
+      ]
+    },
+    {
+      "Power": [
+        {
+          "info": [
+            {
+              "id": "16",
+              "tab_id": "19",
+              "visible": "1",
+              "hdr": "PWR",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Power Down Type(1930)": [
+            {
+              "type": "combo",
+              "ID": "30",
+              "value": "Deep Sleep",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Deep Sleep;0;2",
+                  "2": "2;Sleep;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Main Power Check(1931)": [
+            {
+              "type": "combo",
+              "ID": "31",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Battery Error Check(1932)": [
+            {
+              "type": "combo",
+              "ID": "32",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Vehicle's max. voltage level(1933)": [
+            { "type": "edit", "ID": "33", "value": "17.00", "max": "5" }
+          ]
+        },
+        {
+          "Shutdown Threshold 12V Vehicle Battery(1934)": [
+            { "type": "edit", "ID": "34", "value": "8.00", "max": "5" }
+          ]
+        },
+        {
+          "Shutdown Threshold 24V Vehicle Battery(1935)": [
+            { "type": "edit", "ID": "35", "value": "18.00", "max": "5" }
+          ]
+        },
+        {
+          "Use Low Battery Shutdown(1936)": [
+            {
+              "type": "combo",
+              "ID": "36",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Low Battery Shutdown Threshold(1937)": [
+            { "type": "edit", "ID": "37", "value": "3.4", "max": "3" }
+          ]
+        },
+        {
+          "Low Battery Alert Threshold(1938)": [
+            { "type": "edit", "ID": "38", "value": "3.5", "max": "3" }
+          ]
+        }
+      ]
+    },
+    {
+      "IGNITION": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "17",
+              "visible": "1",
+              "hdr": "IGN",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "IGNITION(1700)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Use Ignition Line",
+              "num": "3",
+              "list": [
+                {
+                  "0": "1;Use Ignition Line;0;2",
+                  "1": "2;Power ignition;0;2",
+                  "2": "3;Motion ignition;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Ignition Off Delay(Sec.)(1701)": [
+            { "type": "edit", "ID": "1", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Ignition On Delay(Sec.)(1702)": [
+            { "type": "edit", "ID": "2", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "VI-M:Ignition On Threshold(1705)": [
+            { "type": "edit", "ID": "5", "value": "5", "max": "3" }
+          ]
+        },
+        {
+          "VI-M:Ignition On Delay(Sec.)(1706)": [
+            { "type": "edit", "ID": "6", "value": "10", "max": "3" }
+          ]
+        },
+        {
+          "VI-M:Ignition On Percent(1707)": [
+            { "type": "edit", "ID": "7", "value": "70", "max": "3" }
+          ]
+        },
+        {
+          "VI-M:Ignition Off Threshold(1708)": [
+            { "type": "edit", "ID": "8", "value": "5", "max": "3" }
+          ]
+        },
+        {
+          "VI-M:Ignition Off Delay(Sec.)(1709)": [
+            { "type": "edit", "ID": "9", "value": "10", "max": "3" }
+          ]
+        },
+        {
+          "VI-M:Ignition Off Percent(1710)": [
+            { "type": "edit", "ID": "10", "value": "70", "max": "3" }
+          ]
+        },
+        {
+          "VI-V:Ignition High (V)(1715)": [
+            { "type": "edit", "ID": "15", "value": "0.00", "max": "5" }
+          ]
+        },
+        {
+          "VI-V:Ignition Low (V)(1716)": [
+            { "type": "edit", "ID": "16", "value": "0.00", "max": "5" }
+          ]
+        }
+      ]
+    },
+    {
+      "Inputs": [
+        {
+          "info": [
+            {
+              "id": "10",
+              "tab_id": "17",
+              "visible": "1",
+              "hdr": "INP",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Input1 Type(1720)": [
+            {
+              "type": "combo",
+              "ID": "20",
+              "value": "Falling Edge",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Falling Edge;0;2",
+                  "1": "1;Rising Edge;0;2",
+                  "2": "2;Both Edge;0;2",
+                  "3": "3;Panic Button;0;2",
+                  "4": "7;Anti-Theft Button;0;2",
+                  "5": "11;Door Sensor;0;2",
+                  "6": "13;Disable Immob. if activated by JAM;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Input1 Chat(100ms)(1721)": [
+            { "type": "edit", "ID": "21", "value": "20", "max": "4" }
+          ]
+        },
+        {
+          "Input2 Type(1722)": [
+            {
+              "type": "combo",
+              "ID": "22",
+              "value": "1-Wire",
+              "num": "1",
+              "list": [{ "0": "18;1-Wire;0;2" }]
+            }
+          ]
+        },
+        {
+          "Input2 Chat(100ms)(1723)": [
+            { "type": "edit", "ID": "23", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Input3 Type(1724)": [
+            {
+              "type": "combo",
+              "ID": "24",
+              "value": "Both Edge",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Falling Edge;0;2",
+                  "1": "1;Rising Edge;0;2",
+                  "2": "2;Both Edge;0;2",
+                  "3": "3;Panic Button;0;2",
+                  "4": "7;Anti-Theft Button;0;2",
+                  "5": "11;Door Sensor;0;2",
+                  "6": "13;Disable Immob. if activated by JAM;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Input3 Chat(100ms)(1725)": [
+            { "type": "edit", "ID": "25", "value": "20", "max": "4" }
+          ]
+        },
+        {
+          "Input4 Type(1726)": [
+            {
+              "type": "combo",
+              "ID": "26",
+              "value": "Both Edge",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Falling Edge;0;2",
+                  "1": "1;Rising Edge;0;2",
+                  "2": "2;Both Edge;0;2",
+                  "3": "3;Panic Button;0;2",
+                  "4": "7;Anti-Theft Button;0;2",
+                  "5": "11;Door Sensor;0;2",
+                  "6": "13;Disable Immob. if activated by JAM;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Input4 Chat(100ms)(1727)": [
+            { "type": "edit", "ID": "27", "value": "20", "max": "4" }
+          ]
+        }
+      ]
+    },
+    {
+      "Outputs": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "17",
+              "visible": "1",
+              "hdr": "OUT",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Output1 Type(1760)": [
+            {
+              "type": "combo",
+              "ID": "60",
+              "value": "GPIO",
+              "num": "8",
+              "list": [
+                {
+                  "0": "0;GPIO;0;2",
+                  "1": "1;Immobilizer;0;2",
+                  "2": "2;Immobilizer Auto;0;2",
+                  "3": "3;Pulse;0;2",
+                  "4": "5;Buzzer;0;2",
+                  "5": "17;Horn Pulse;0;2",
+                  "6": "18;Buzzer Pulse;0;2",
+                  "7": "19;Output Disable;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Output1 Active(1761)": [
+            {
+              "type": "combo",
+              "ID": "61",
+              "value": "Ground",
+              "num": "2",
+              "list": [{ "0": "0;Open;0;2", "1": "1;Ground;0;2" }]
+            }
+          ]
+        },
+        {
+          "Pulse1 No(1775)": [
+            { "type": "edit", "ID": "75", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse1 ON(100ms)(1776)": [
+            { "type": "edit", "ID": "76", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse1 OFF(100ms)(1777)": [
+            { "type": "edit", "ID": "77", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Output2 Type(1762)": [
+            {
+              "type": "combo",
+              "ID": "62",
+              "value": "GPIO",
+              "num": "8",
+              "list": [
+                {
+                  "0": "0;GPIO;0;2",
+                  "1": "1;Immobilizer;0;2",
+                  "2": "2;Immobilizer Auto;0;2",
+                  "3": "3;Pulse;0;2",
+                  "4": "5;Buzzer;0;2",
+                  "5": "17;Horn Pulse;0;2",
+                  "6": "18;Buzzer Pulse;0;2",
+                  "7": "19;Output Disable;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Output2 Active(1763)": [
+            {
+              "type": "combo",
+              "ID": "63",
+              "value": "Ground",
+              "num": "2",
+              "list": [{ "0": "0;Open;0;2", "1": "1;Ground;0;2" }]
+            }
+          ]
+        },
+        {
+          "Pulse2 No(1780)": [
+            { "type": "edit", "ID": "80", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse2 ON(100ms)(1781)": [
+            { "type": "edit", "ID": "81", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse2 OFF(100ms)(1782)": [
+            { "type": "edit", "ID": "82", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Output3 Type(1764)": [
+            {
+              "type": "combo",
+              "ID": "64",
+              "value": "GPIO",
+              "num": "8",
+              "list": [
+                {
+                  "0": "0;GPIO;0;2",
+                  "1": "1;Immobilizer;0;2",
+                  "2": "2;Immobilizer Auto;0;2",
+                  "3": "3;Pulse;0;2",
+                  "4": "5;Buzzer;0;2",
+                  "5": "17;Horn Pulse;0;2",
+                  "6": "18;Buzzer Pulse;0;2",
+                  "7": "19;Output Disable;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Output3 Active(1765)": [
+            {
+              "type": "combo",
+              "ID": "65",
+              "value": "Ground",
+              "num": "2",
+              "list": [{ "0": "0;Open;0;2", "1": "1;Ground;0;2" }]
+            }
+          ]
+        },
+        {
+          "Pulse3 No(1783)": [
+            { "type": "edit", "ID": "83", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse3 ON(100ms)(1784)": [
+            { "type": "edit", "ID": "84", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Pulse3 OFF(100ms)(1785)": [
+            { "type": "edit", "ID": "85", "value": "0", "max": "4" }
+          ]
+        }
+      ]
+    },
+    {
+      "Profile Setting": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "16",
+              "visible": "1",
+              "hdr": "PRO",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Time[1](Sec.)(1670)": [
+            { "type": "edit", "ID": "70", "value": "600", "max": "5" }
+          ]
+        },
+        {
+          "Distance[1](Meter.)(1671)": [
+            { "type": "edit", "ID": "71", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Angle[1](Degree.)(1672)": [
+            { "type": "edit", "ID": "72", "value": "0", "max": "3" }
+          ]
+        },
+        {
+          "Time[2](Sec.)(1673)": [
+            { "type": "edit", "ID": "73", "value": "600", "max": "5" }
+          ]
+        },
+        {
+          "Distance[2](Meter.)(1674)": [
+            { "type": "edit", "ID": "74", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Angle[2](Degree.)(1675)": [
+            { "type": "edit", "ID": "75", "value": "0", "max": "3" }
+          ]
+        },
+        {
+          "Time[3](Sec.)(1676)": [
+            { "type": "edit", "ID": "76", "value": "3600", "max": "5" }
+          ]
+        },
+        {
+          "Distance[3](Meter.)(1677)": [
+            { "type": "edit", "ID": "77", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Angle[3](Degree.)(1678)": [
+            { "type": "edit", "ID": "78", "value": "0", "max": "3" }
+          ]
+        },
+        {
+          "Time[4](Sec.)(1679)": [
+            { "type": "edit", "ID": "79", "value": "60", "max": "5" }
+          ]
+        },
+        {
+          "Distance[4](Meter.)(1680)": [
+            { "type": "edit", "ID": "80", "value": "1000", "max": "5" }
+          ]
+        },
+        {
+          "Angle[4](Degree.)(1681)": [
+            { "type": "edit", "ID": "81", "value": "90", "max": "3" }
+          ]
+        },
+        {
+          "Time[5](Sec.)(1682)": [
+            { "type": "edit", "ID": "82", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "Distance[5](Meter.)(1683)": [
+            { "type": "edit", "ID": "83", "value": "1000", "max": "5" }
+          ]
+        },
+        {
+          "Angle[5](Degree.)(1684)": [
+            { "type": "edit", "ID": "84", "value": "60", "max": "3" }
+          ]
+        },
+        {
+          "Time[6](Sec.)(1685)": [
+            { "type": "edit", "ID": "85", "value": "3600", "max": "5" }
+          ]
+        },
+        {
+          "Distance[6](Meter.)(1686)": [
+            { "type": "edit", "ID": "86", "value": "1000", "max": "5" }
+          ]
+        },
+        {
+          "Angle[6](Degree.)(1687)": [
+            { "type": "edit", "ID": "87", "value": "30", "max": "3" }
+          ]
+        }
+      ]
+    },
+    {
+      "Mode Config": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "16",
+              "visible": "1",
+              "hdr": "RMC",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Drive Mode Profile(1600)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "PROFILE 4",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;PROFILE 1;0;2",
+                  "2": "2;PROFILE 2;0;2",
+                  "3": "3;PROFILE 3;0;2",
+                  "4": "4;PROFILE 4;0;2",
+                  "5": "5;PROFILE 5;0;2",
+                  "6": "6;PROFILE 6;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Drive Mode Entry Delay(Sec.)(1601)": [
+            { "type": "edit", "ID": "1", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Park Mode Profile(1605)": [
+            {
+              "type": "combo",
+              "ID": "5",
+              "value": "PROFILE 1",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;PROFILE 1;0;2",
+                  "2": "2;PROFILE 2;0;2",
+                  "3": "3;PROFILE 3;0;2",
+                  "4": "4;PROFILE 4;0;2",
+                  "5": "5;PROFILE 5;0;2",
+                  "6": "6;PROFILE 6;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Park Mode Entry Delay(Sec.)(1606)": [
+            { "type": "edit", "ID": "6", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Idle Mode Profile(1610)": [
+            {
+              "type": "combo",
+              "ID": "10",
+              "value": "PROFILE 2",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;PROFILE 1;0;2",
+                  "2": "2;PROFILE 2;0;2",
+                  "3": "3;PROFILE 3;0;2",
+                  "4": "4;PROFILE 4;0;2",
+                  "5": "5;PROFILE 5;0;2",
+                  "6": "6;PROFILE 6;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Idle Mode Gps No Move Delay(Sec.)(1611)": [
+            { "type": "edit", "ID": "11", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Idle Mode Acc No Move Delay(Sec.)(1612)": [
+            { "type": "edit", "ID": "12", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "Idle Mode Exit Gps Move Delay(Sec.)(1613)": [
+            { "type": "edit", "ID": "13", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "Idle Mode Exit Acc Move Delay(Sec.)(1614)": [
+            { "type": "edit", "ID": "14", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "Excess Idle threshold1(Sec.)(1615)": [
+            { "type": "edit", "ID": "15", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Excess Idle threshold2(Sec.)(1616)": [
+            { "type": "edit", "ID": "16", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Excess Idle threshold3(Sec.)(1617)": [
+            { "type": "edit", "ID": "17", "value": "0", "max": "5" }
+          ]
+        },
+        {
+          "Speed Mode Profile(1620)": [
+            {
+              "type": "combo",
+              "ID": "20",
+              "value": "PROFILE 5",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;PROFILE 1;0;2",
+                  "2": "2;PROFILE 2;0;2",
+                  "3": "3;PROFILE 3;0;2",
+                  "4": "4;PROFILE 4;0;2",
+                  "5": "5;PROFILE 5;0;2",
+                  "6": "6;PROFILE 6;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Speed Mode Threshold(1621)": [
+            { "type": "edit", "ID": "21", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Speed Mode Entry Delay(Sec.)(1622)": [
+            { "type": "edit", "ID": "22", "value": "10", "max": "5" }
+          ]
+        },
+        {
+          "Speed Mode Exit Delay(Sec.)(1623)": [
+            { "type": "edit", "ID": "23", "value": "10", "max": "5" }
+          ]
+        },
+        {
+          "Speed Above Alert Delay(Sec.)(1624)": [
+            { "type": "edit", "ID": "24", "value": "5", "max": "5" }
+          ]
+        },
+        {
+          "Speed Below Alert Delay(Sec.)(1625)": [
+            { "type": "edit", "ID": "25", "value": "10", "max": "5" }
+          ]
+        },
+        {
+          "Towing Mode Profile(1636)": [
+            {
+              "type": "combo",
+              "ID": "36",
+              "value": "PROFILE 4",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;PROFILE 1;0;2",
+                  "2": "2;PROFILE 2;0;2",
+                  "3": "3;PROFILE 3;0;2",
+                  "4": "4;PROFILE 4;0;2",
+                  "5": "5;PROFILE 5;0;2",
+                  "6": "6;PROFILE 6;0;2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Serial RS232": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "19",
+              "visible": "1",
+              "hdr": "SRL",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "RS232 Device(1950)": [
+            {
+              "type": "combo",
+              "ID": "50",
+              "value": "Normal",
+              "num": "9",
+              "list": [
+                {
+                  "0": "0;Normal;0;2",
+                  "1": "1;RFID;0;2",
+                  "2": "6;ST25T;0;2",
+                  "3": "7;ST20U;0;2",
+                  "4": "8;FUEL_OMNICOMM;0;2",
+                  "5": "9;Movon MDSM-7;0;2",
+                  "6": "10;Movon MDSM-7 UEX;0;2",
+                  "7": "11;Movon MDAS-9;0;2",
+                  "8": "15;FUEL_ESCORT;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Baud Rate(1951)": [
+            {
+              "type": "combo",
+              "ID": "51",
+              "value": "No Use",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;No Use;0;2",
+                  "1": "1;4800;0;2",
+                  "2": "2;9600;0;2",
+                  "3": "3;19200;0;2",
+                  "4": "4;38400;0;2",
+                  "5": "5;115200;0;2",
+                  "6": "6;2400;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Disconnect Timeout(Sec.)(1956)": [
+            { "type": "edit", "ID": "56", "value": "30", "max": "5" }
+          ]
+        },
+        {
+          "MDSM-7/MDAS-9 Delay to Alert(1957)": [
+            { "type": "edit", "ID": "57", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Alert report trough RS232(1958)": [
+            {
+              "type": "combo",
+              "ID": "58",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "1-Wire Settings": [
+        {
+          "info": [
+            {
+              "id": "33",
+              "tab_id": "19",
+              "visible": "1",
+              "hdr": "TAS",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "1-Wire Selection(1970)": [
+            {
+              "type": "combo",
+              "ID": "70",
+              "value": "Disable",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Driver ID;0;2",
+                  "2": "2;Temperature Sensors;0;2",
+                  "3": "3;Temp & Driver ID;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "DID Tolerance Time(Sec.)(1971)": [
+            { "type": "edit", "ID": "71", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "DID Life Time(Sec.)(1972)": [
+            { "type": "edit", "ID": "72", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Temp1 High Threshold(1980)": [
+            { "type": "edit", "ID": "80", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp1 Low Threshold(1981)": [
+            { "type": "edit", "ID": "81", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp2 High Threshold(1982)": [
+            { "type": "edit", "ID": "82", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp2 Low Threshold(1983)": [
+            { "type": "edit", "ID": "83", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp3 High Threshold(1984)": [
+            { "type": "edit", "ID": "84", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp3 Low Threshold(1985)": [
+            { "type": "edit", "ID": "85", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp4 High Threshold(1986)": [
+            { "type": "edit", "ID": "86", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp4 Low Threshold(1987)": [
+            { "type": "edit", "ID": "87", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp5 High Threshold(1988)": [
+            { "type": "edit", "ID": "88", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp5 Low Threshold(1989)": [
+            { "type": "edit", "ID": "89", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp6 High Threshold(1990)": [
+            { "type": "edit", "ID": "90", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp6 Low Threshold(1991)": [
+            { "type": "edit", "ID": "91", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp7 High Threshold(1992)": [
+            { "type": "edit", "ID": "92", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp7 Low Threshold(1993)": [
+            { "type": "edit", "ID": "93", "value": "-50", "max": "3" }
+          ]
+        },
+        {
+          "Temp8 High Threshold(1994)": [
+            { "type": "edit", "ID": "94", "value": "100", "max": "3" }
+          ]
+        },
+        {
+          "Temp8 Low Threshold(1995)": [
+            { "type": "edit", "ID": "95", "value": "-50", "max": "3" }
+          ]
+        }
+      ]
+    },
+    {
+      "1W Add Driver ID": [
+        {
+          "info": [
+            {
+              "id": "21",
+              "tab_id": "18",
+              "visible": "1",
+              "hdr": "HAD",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "1st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "1st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "2st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "2st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "3st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "3st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "4st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "4st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "5st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "5st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "6st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "6st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "7st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "7st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "8st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "8st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "9st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "9st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        },
+        {
+          "10st Pos": [
+            { "type": "edit_number", "ID": "0", "value": "", "max": "3" }
+          ]
+        },
+        {
+          "10st Driver ID No.": [
+            { "type": "edit", "ID": "0", "value": "", "max": "16" }
+          ]
+        }
+      ]
+    },
+    {
+      "1W: Remove Driver ID": [
+        {
+          "info": [
+            {
+              "id": "22",
+              "tab_id": "18",
+              "visible": "1",
+              "hdr": "HRD",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Pos": [{ "type": "edit_number", "ID": "0", "value": "", "max": "3" }]
+        }
+      ]
+    },
+    {
+      "1W: Get Driver ID": [
+        {
+          "info": [
+            {
+              "id": "23",
+              "tab_id": "18",
+              "visible": "1",
+              "hdr": "HGD",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Pos": [{ "type": "edit_number", "ID": "0", "value": "", "max": "3" }]
+        }
+      ]
+    },
+    {
+      "MDSM-7 Settings": [
+        {
+          "info": [
+            {
+              "id": "33",
+              "tab_id": "23",
+              "visible": "1",
+              "hdr": "M7E",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Volume Level(2350)": [
+            {
+              "type": "combo",
+              "ID": "50",
+              "value": "Not affect",
+              "num": "5",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;4;0;2",
+                  "4": "5;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "No Use HW Switch(2351)": [
+            {
+              "type": "combo",
+              "ID": "51",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Working Speed(2352)": [
+            { "type": "edit", "ID": "52", "value": "255", "max": "3" }
+          ]
+        },
+        {
+          "Drowsiness Warning Use(2353)": [
+            {
+              "type": "combo",
+              "ID": "53",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Drowsiness Vibration(2354)": [
+            {
+              "type": "combo",
+              "ID": "54",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Drowsiness Sound(2355)": [
+            {
+              "type": "combo",
+              "ID": "55",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;0;0;2",
+                  "1": "1;1;0;2",
+                  "2": "2;2;0;2",
+                  "3": "3;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Drowsiness Sensitivity(2356)": [
+            {
+              "type": "combo",
+              "ID": "56",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Distraction Warning Use(2357)": [
+            {
+              "type": "combo",
+              "ID": "57",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Distraction Vibration(2358)": [
+            {
+              "type": "combo",
+              "ID": "58",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Distraction Sound(2359)": [
+            {
+              "type": "combo",
+              "ID": "59",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;0;0;2",
+                  "1": "1;1;0;2",
+                  "2": "2;2;0;2",
+                  "3": "3;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Distraction Sensitivity(2360)": [
+            {
+              "type": "combo",
+              "ID": "60",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Phone Warning Use(2361)": [
+            {
+              "type": "combo",
+              "ID": "61",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Phone  Vibration(2362)": [
+            {
+              "type": "combo",
+              "ID": "62",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Phone Sound(2363)": [
+            {
+              "type": "combo",
+              "ID": "63",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;0;0;2",
+                  "1": "1;1;0;2",
+                  "2": "2;2;0;2",
+                  "3": "3;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Phone Sensitivity(2364)": [
+            {
+              "type": "combo",
+              "ID": "64",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Smoking Warning Use(2365)": [
+            {
+              "type": "combo",
+              "ID": "65",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Smoking Vibration(2366)": [
+            {
+              "type": "combo",
+              "ID": "66",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Smoking Sound(2367)": [
+            {
+              "type": "combo",
+              "ID": "67",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;0;0;2",
+                  "1": "1;1;0;2",
+                  "2": "2;2;0;2",
+                  "3": "3;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Smoking Sensitivity(2368)": [
+            {
+              "type": "combo",
+              "ID": "68",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Yawning Warning Use(2369)": [
+            {
+              "type": "combo",
+              "ID": "69",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Yawning Vibration(2370)": [
+            {
+              "type": "combo",
+              "ID": "70",
+              "value": "Not affect",
+              "num": "3",
+              "list": [
+                {
+                  "0": "0;Disable;0;2",
+                  "1": "1;Enable;0;2",
+                  "2": "2;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Yawning Sound(2371)": [
+            {
+              "type": "combo",
+              "ID": "71",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;0;0;2",
+                  "1": "1;1;0;2",
+                  "2": "2;2;0;2",
+                  "3": "3;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Yawning Sensitivity(2372)": [
+            {
+              "type": "combo",
+              "ID": "72",
+              "value": "Not affect",
+              "num": "4",
+              "list": [
+                {
+                  "0": "1;1;0;2",
+                  "1": "2;2;0;2",
+                  "2": "3;3;0;2",
+                  "3": "4;Not affect;0;2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ALERT_CONFIG1": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "13",
+              "visible": "1",
+              "hdr": "ALTCFG1",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Ignition On(33)": [
+            {
+              "type": "alert_id",
+              "ID": "0",
+              "value": "1",
+              "alert_id": "33",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Ignition Off(34)": [
+            {
+              "type": "alert_id",
+              "ID": "1",
+              "value": "1",
+              "alert_id": "34",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Drive Mode(29)": [
+            {
+              "type": "alert_id",
+              "ID": "2",
+              "value": "1",
+              "alert_id": "29",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Park Mode(31)": [
+            {
+              "type": "alert_id",
+              "ID": "4",
+              "value": "1",
+              "alert_id": "31",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Idle Mode(68)": [
+            {
+              "type": "alert_id",
+              "ID": "6",
+              "value": "1",
+              "alert_id": "68",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Excess Idle(35)": [
+            {
+              "type": "alert_id",
+              "ID": "8",
+              "value": "1",
+              "alert_id": "35",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Speeding Mode(36)": [
+            {
+              "type": "alert_id",
+              "ID": "11",
+              "value": "1",
+              "alert_id": "36",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Over Speed(1)": [
+            {
+              "type": "alert_id",
+              "ID": "13",
+              "value": "1",
+              "alert_id": "1",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Under Speed(2)": [
+            {
+              "type": "alert_id",
+              "ID": "14",
+              "value": "1",
+              "alert_id": "2",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Towing Mode(58)": [
+            {
+              "type": "alert_id",
+              "ID": "21",
+              "value": "1",
+              "alert_id": "58",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Enter Sleep(9)": [
+            {
+              "type": "alert_id",
+              "ID": "25",
+              "value": "1",
+              "alert_id": "9",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Exit Sleep(10)": [
+            {
+              "type": "alert_id",
+              "ID": "26",
+              "value": "1",
+              "alert_id": "10",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Low Back-up Battery(43)": [
+            {
+              "type": "alert_id",
+              "ID": "28",
+              "value": "1",
+              "alert_id": "43",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Power UP(99)": [
+            {
+              "type": "alert_id",
+              "ID": "29",
+              "value": "1",
+              "alert_id": "99",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Main Power Connected(40)": [
+            {
+              "type": "alert_id",
+              "ID": "30",
+              "value": "1",
+              "alert_id": "40",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Main Power Disconnected(41)": [
+            {
+              "type": "alert_id",
+              "ID": "31",
+              "value": "1",
+              "alert_id": "41",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Connected to Back-up Battery(44)": [
+            {
+              "type": "alert_id",
+              "ID": "32",
+              "value": "1",
+              "alert_id": "44",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Disconnected to Back-up Battery(45)": [
+            {
+              "type": "alert_id",
+              "ID": "33",
+              "value": "1",
+              "alert_id": "45",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Battery Error(13)": [
+            {
+              "type": "alert_id",
+              "ID": "34",
+              "value": "1",
+              "alert_id": "13",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Battery Low(14)": [
+            {
+              "type": "alert_id",
+              "ID": "35",
+              "value": "1",
+              "alert_id": "14",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "GPS Antenna Disconnected(3)": [
+            {
+              "type": "alert_id",
+              "ID": "36",
+              "value": "0",
+              "alert_id": "3",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "GPS Antenna Connected(4)": [
+            {
+              "type": "alert_id",
+              "ID": "37",
+              "value": "0",
+              "alert_id": "4",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "GPS Antenna Shorted(8)": [
+            {
+              "type": "alert_id",
+              "ID": "38",
+              "value": "0",
+              "alert_id": "8",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Sim Card Removed(72)": [
+            {
+              "type": "alert_id",
+              "ID": "39",
+              "value": "0",
+              "alert_id": "72",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Jamming Detected(50)": [
+            {
+              "type": "alert_id",
+              "ID": "40",
+              "value": "1",
+              "alert_id": "50",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Shocked(15)": [
+            {
+              "type": "alert_id",
+              "ID": "50",
+              "value": "1",
+              "alert_id": "15",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Collision has occurred to vehicle(16)": [
+            {
+              "type": "alert_id",
+              "ID": "51",
+              "value": "1",
+              "alert_id": "16",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Motion Detected(17)": [
+            {
+              "type": "alert_id",
+              "ID": "52",
+              "value": "1",
+              "alert_id": "17",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Alert of Fast Acceleration : Driver Pattern(46)": [
+            {
+              "type": "alert_id",
+              "ID": "54",
+              "value": "1",
+              "alert_id": "46",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Alert of Harsh Brake : Driver Pattern(47)": [
+            {
+              "type": "alert_id",
+              "ID": "55",
+              "value": "1",
+              "alert_id": "47",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Sharp turn left alert : Driver Pattern(48)": [
+            {
+              "type": "alert_id",
+              "ID": "56",
+              "value": "1",
+              "alert_id": "48",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Sharp turn right alert : Driver Pattern(49)": [
+            {
+              "type": "alert_id",
+              "ID": "57",
+              "value": "1",
+              "alert_id": "49",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Vehicle Exit Circular Geo-Fence(5)": [
+            {
+              "type": "alert_id",
+              "ID": "65",
+              "value": "1",
+              "alert_id": "5",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Vehicle Enter Circular Geo-Fence(6)": [
+            {
+              "type": "alert_id",
+              "ID": "66",
+              "value": "1",
+              "alert_id": "6",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Vehicle Exit Poly Geo-Fence(74)": [
+            {
+              "type": "alert_id",
+              "ID": "67",
+              "value": "1",
+              "alert_id": "74",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Vehicle Enter Poly Geo-Fence(79)": [
+            {
+              "type": "alert_id",
+              "ID": "68",
+              "value": "1",
+              "alert_id": "79",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Input goes to Open(11)": [
+            {
+              "type": "alert_id",
+              "ID": "71",
+              "value": "1",
+              "alert_id": "11",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Input goes to GND(12)": [
+            {
+              "type": "alert_id",
+              "ID": "72",
+              "value": "1",
+              "alert_id": "12",
+              "max": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ALERT_CONFIG2": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "14",
+              "visible": "1",
+              "hdr": "ALTCFG2",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Temp High(75)": [
+            {
+              "type": "alert_id",
+              "ID": "0",
+              "value": "1",
+              "alert_id": "75",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Temp Low(76)": [
+            {
+              "type": "alert_id",
+              "ID": "1",
+              "value": "1",
+              "alert_id": "76",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Temp Return(77)": [
+            {
+              "type": "alert_id",
+              "ID": "2",
+              "value": "1",
+              "alert_id": "77",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "iButton Inserted(59)": [
+            {
+              "type": "alert_id",
+              "ID": "3",
+              "value": "1",
+              "alert_id": "59",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "RFID Tag Detection(93)": [
+            {
+              "type": "alert_id",
+              "ID": "5",
+              "value": "1",
+              "alert_id": "93",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "RS232 Connection/Disconnection(69)": [
+            {
+              "type": "alert_id",
+              "ID": "7",
+              "value": "1",
+              "alert_id": "69",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "GPS Fix(97)": [
+            {
+              "type": "alert_id",
+              "ID": "17",
+              "value": "0",
+              "alert_id": "97",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Connect(85)": [
+            {
+              "type": "alert_id",
+              "ID": "18",
+              "value": "1",
+              "alert_id": "85",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Disconnect(86)": [
+            {
+              "type": "alert_id",
+              "ID": "19",
+              "value": "1",
+              "alert_id": "86",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T RS232 Fuel Net Address Scan Fail(87)": [
+            {
+              "type": "alert_id",
+              "ID": "20",
+              "value": "1",
+              "alert_id": "87",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T RS232 Fuel Max Level Excess(88)": [
+            {
+              "type": "alert_id",
+              "ID": "21",
+              "value": "1",
+              "alert_id": "88",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Fuel Connect(89)": [
+            {
+              "type": "alert_id",
+              "ID": "22",
+              "value": "1",
+              "alert_id": "89",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Fuel Disconnect(90)": [
+            {
+              "type": "alert_id",
+              "ID": "23",
+              "value": "1",
+              "alert_id": "90",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Fuel Level Lower(91)": [
+            {
+              "type": "alert_id",
+              "ID": "24",
+              "value": "1",
+              "alert_id": "91",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST25T Fuel Level Upper(92)": [
+            {
+              "type": "alert_id",
+              "ID": "25",
+              "value": "1",
+              "alert_id": "92",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :Exceed Speed(61)": [
+            {
+              "type": "alert_id",
+              "ID": "26",
+              "value": "1",
+              "alert_id": "61",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :Vehicle Speed Violation(62)": [
+            {
+              "type": "alert_id",
+              "ID": "27",
+              "value": "1",
+              "alert_id": "62",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :Coolant Temperature Violation(63)": [
+            {
+              "type": "alert_id",
+              "ID": "28",
+              "value": "1",
+              "alert_id": "63",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :Oil Pressure Violation(64)": [
+            {
+              "type": "alert_id",
+              "ID": "29",
+              "value": "1",
+              "alert_id": "64",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :RPM Violation(65)": [
+            {
+              "type": "alert_id",
+              "ID": "30",
+              "value": "1",
+              "alert_id": "65",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Engine :Error Code(DTC)(66)": [
+            {
+              "type": "alert_id",
+              "ID": "31",
+              "value": "1",
+              "alert_id": "66",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST20U Connect(70)": [
+            {
+              "type": "alert_id",
+              "ID": "32",
+              "value": "1",
+              "alert_id": "70",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "ST20U Disconnect(71)": [
+            {
+              "type": "alert_id",
+              "ID": "33",
+              "value": "1",
+              "alert_id": "71",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Over Speed in Polygon(100)": [
+            {
+              "type": "alert_id",
+              "ID": "34",
+              "value": "1",
+              "alert_id": "100",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Under Speed in Polygon(101)": [
+            {
+              "type": "alert_id",
+              "ID": "35",
+              "value": "1",
+              "alert_id": "101",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Violation by Panic Button(42)": [
+            {
+              "type": "alert_id",
+              "ID": "43",
+              "value": "1",
+              "alert_id": "42",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Violation by Anti-theft(73)": [
+            {
+              "type": "alert_id",
+              "ID": "44",
+              "value": "1",
+              "alert_id": "73",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "MDSM-7 Event(103)": [
+            {
+              "type": "alert_id",
+              "ID": "46",
+              "value": "1",
+              "alert_id": "103",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "MDAS-9 Event(104)": [
+            {
+              "type": "alert_id",
+              "ID": "47",
+              "value": "1",
+              "alert_id": "104",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Door Open Protection(132)": [
+            {
+              "type": "alert_id",
+              "ID": "70",
+              "value": "1",
+              "alert_id": "132",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "Lose Network Connection(141)": [
+            {
+              "type": "alert_id",
+              "ID": "71",
+              "value": "0",
+              "alert_id": "141",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "BankTruck Active By Polygon(142)": [
+            {
+              "type": "alert_id",
+              "ID": "72",
+              "value": "1",
+              "alert_id": "142",
+              "max": "3"
+            }
+          ]
+        },
+        {
+          "BankTruck Active By Circular(143)": [
+            {
+              "type": "alert_id",
+              "ID": "73",
+              "value": "1",
+              "alert_id": "143",
+              "max": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ASSIGN HEADER(STT)": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "11",
+              "visible": "1",
+              "type": "assign",
+              "map_id": "1081",
+              "hdr": "ASGNSTT",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN1": [
+            {
+              "type": "sAssign",
+              "ID": "0",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN2": [
+            {
+              "type": "sAssign",
+              "ID": "1",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN3": [
+            {
+              "type": "sAssign",
+              "ID": "2",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN4": [
+            {
+              "type": "sAssign",
+              "ID": "3",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN5": [
+            {
+              "type": "sAssign",
+              "ID": "4",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN6": [
+            {
+              "type": "sAssign",
+              "ID": "5",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN7": [
+            {
+              "type": "sAssign",
+              "ID": "6",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN8": [
+            {
+              "type": "sAssign",
+              "ID": "7",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN9": [
+            {
+              "type": "sAssign",
+              "ID": "8",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN10": [
+            {
+              "type": "sAssign",
+              "ID": "9",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN11": [
+            {
+              "type": "sAssign",
+              "ID": "10",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN12": [
+            {
+              "type": "sAssign",
+              "ID": "11",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN13": [
+            {
+              "type": "sAssign",
+              "ID": "12",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN14": [
+            {
+              "type": "sAssign",
+              "ID": "13",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN15": [
+            {
+              "type": "sAssign",
+              "ID": "14",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN1": [
+            {
+              "type": "mAssign",
+              "ID": "40",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN2": [
+            {
+              "type": "mAssign",
+              "ID": "41",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN3": [
+            {
+              "type": "mAssign",
+              "ID": "42",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN4": [
+            {
+              "type": "mAssign",
+              "ID": "43",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN5": [
+            {
+              "type": "mAssign",
+              "ID": "44",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN6": [
+            {
+              "type": "mAssign",
+              "ID": "45",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN7": [
+            {
+              "type": "mAssign",
+              "ID": "46",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN8": [
+            {
+              "type": "mAssign",
+              "ID": "47",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN1": [
+            {
+              "type": "lAssign",
+              "ID": "60",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN2": [
+            {
+              "type": "lAssign",
+              "ID": "61",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN3": [
+            {
+              "type": "lAssign",
+              "ID": "62",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN4": [
+            {
+              "type": "lAssign",
+              "ID": "63",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN5": [
+            {
+              "type": "lAssign",
+              "ID": "64",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN6": [
+            {
+              "type": "lAssign",
+              "ID": "65",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN7": [
+            {
+              "type": "lAssign",
+              "ID": "66",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN8": [
+            {
+              "type": "lAssign",
+              "ID": "67",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ASSIGN HEADER(ALT)": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "12",
+              "visible": "1",
+              "type": "assign",
+              "map_id": "1083",
+              "hdr": "ASGNALT",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN1": [
+            {
+              "type": "sAssign",
+              "ID": "0",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN2": [
+            {
+              "type": "sAssign",
+              "ID": "1",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN3": [
+            {
+              "type": "sAssign",
+              "ID": "2",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN4": [
+            {
+              "type": "sAssign",
+              "ID": "3",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN5": [
+            {
+              "type": "sAssign",
+              "ID": "4",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN6": [
+            {
+              "type": "sAssign",
+              "ID": "5",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN7": [
+            {
+              "type": "sAssign",
+              "ID": "6",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN8": [
+            {
+              "type": "sAssign",
+              "ID": "7",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN9": [
+            {
+              "type": "sAssign",
+              "ID": "8",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN10": [
+            {
+              "type": "sAssign",
+              "ID": "9",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN11": [
+            {
+              "type": "sAssign",
+              "ID": "10",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN12": [
+            {
+              "type": "sAssign",
+              "ID": "11",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN13": [
+            {
+              "type": "sAssign",
+              "ID": "12",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN14": [
+            {
+              "type": "sAssign",
+              "ID": "13",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "S_ASSIGN15": [
+            {
+              "type": "sAssign",
+              "ID": "14",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN1": [
+            {
+              "type": "mAssign",
+              "ID": "40",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN2": [
+            {
+              "type": "mAssign",
+              "ID": "41",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN3": [
+            {
+              "type": "mAssign",
+              "ID": "42",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN4": [
+            {
+              "type": "mAssign",
+              "ID": "43",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN5": [
+            {
+              "type": "mAssign",
+              "ID": "44",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN6": [
+            {
+              "type": "mAssign",
+              "ID": "45",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN7": [
+            {
+              "type": "mAssign",
+              "ID": "46",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "M_ASSIGN8": [
+            {
+              "type": "mAssign",
+              "ID": "47",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN1": [
+            {
+              "type": "lAssign",
+              "ID": "60",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN2": [
+            {
+              "type": "lAssign",
+              "ID": "61",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN3": [
+            {
+              "type": "lAssign",
+              "ID": "62",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN4": [
+            {
+              "type": "lAssign",
+              "ID": "63",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN5": [
+            {
+              "type": "lAssign",
+              "ID": "64",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN6": [
+            {
+              "type": "lAssign",
+              "ID": "65",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN7": [
+            {
+              "type": "lAssign",
+              "ID": "66",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        },
+        {
+          "L_ASSIGN8": [
+            {
+              "type": "lAssign",
+              "ID": "67",
+              "value": "0",
+              "text_num": "0",
+              "max": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Report Mapping": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "10",
+              "visible": "1",
+              "hdr": "RMAP",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Status Report Map(1080)": [
+            {
+              "type": "edit+button",
+              "ID": "80",
+              "value": "3fffff",
+              "num": "24",
+              "max": "6",
+              "AssignList": [
+                {
+                  "0": "REPORT MAP;check box",
+                  "1": "MODEL;check box",
+                  "2": "SW_VER;check box",
+                  "3": "MSG_TYPE;check box",
+                  "4": "DATE;check box",
+                  "5": "TIME;check box",
+                  "6": "CELL_ID;check box",
+                  "7": "MCC;check box",
+                  "8": "MNC;check box",
+                  "9": "LAC;check box",
+                  "10": "RX_LVL;check box",
+                  "11": "LAT;check box",
+                  "12": "LON;check box",
+                  "13": "SPD;check box",
+                  "14": "CRS;check box",
+                  "15": "SATT;check box",
+                  "16": "FIX;check box",
+                  "17": "IN_STATE;check box",
+                  "18": "OUT_STATE;check box",
+                  "19": "MODE;check box",
+                  "20": "RPT_TYPE;check box",
+                  "21": "MSG_NUM;check box",
+                  "22": "RESERVED;check box",
+                  "23": "ASSIGN_MAP;check box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Alert ID Report Map(1082)": [
+            {
+              "type": "edit+button",
+              "ID": "82",
+              "value": "3fffff",
+              "num": "24",
+              "max": "6",
+              "AssignList": [
+                {
+                  "0": "REPORT MAP;check box",
+                  "1": "MODEL;check box",
+                  "2": "SW_VER;check box",
+                  "3": "MSG_TYPE;check box",
+                  "4": "DATE;check box",
+                  "5": "TIME;check box",
+                  "6": "CELL_ID;check box",
+                  "7": "MCC;check box",
+                  "8": "MNC;check box",
+                  "9": "LAC;check box",
+                  "10": "RX_LVL;check box",
+                  "11": "LAT;check box",
+                  "12": "LON;check box",
+                  "13": "SPD;check box",
+                  "14": "CRS;check box",
+                  "15": "SATT;check box",
+                  "16": "FIX;check box",
+                  "17": "IN_STATE;check box",
+                  "18": "OUT_STATE;check box",
+                  "19": "ALERT_ID;check box",
+                  "20": "ALERT_MODE;check box",
+                  "21": "ALERT_DATA;check box",
+                  "22": "RESERVED;check box",
+                  "23": "ASSIGN_MAP;check box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "External Serial Report Map(1084)": [
+            {
+              "type": "edit+button",
+              "ID": "84",
+              "value": "3fffff",
+              "num": "24",
+              "max": "6",
+              "AssignList": [
+                {
+                  "0": "REPORT MAP;check box",
+                  "1": "MODEL;check box",
+                  "2": "SW_VER;check box",
+                  "3": "MSG_TYPE;check box",
+                  "4": "DATE;check box",
+                  "5": "TIME;check box",
+                  "6": "CELL_ID;check box",
+                  "7": "MCC;check box",
+                  "8": "MNC;check box",
+                  "9": "LAC;check box",
+                  "10": "RX_LVL;check box",
+                  "11": "LAT;check box",
+                  "12": "LON;check box",
+                  "13": "SPD;check box",
+                  "14": "CRS;check box",
+                  "15": "SATT;check box",
+                  "16": "FIX;check box",
+                  "17": "IN_STATE;check box",
+                  "18": "OUT_STATE;check box",
+                  "19": "DATA_LEN;check box",
+                  "20": "DATA;check box",
+                  "21": "CHECKSUM;check box",
+                  "22": "RESERVED;check box",
+                  "23": "RESERVED;check box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Travel Event(1086)": [
+            {
+              "type": "combo",
+              "ID": "86",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Travel Report Map(1087)": [
+            {
+              "type": "edit+button",
+              "ID": "87",
+              "value": "00001fffff",
+              "num": "21",
+              "max": "10",
+              "AssignList": [
+                {
+                  "0": "REPORT MAP;check box",
+                  "1": "MODEL;check box",
+                  "2": "SW_VER;check box",
+                  "3": "MSG_TYPE;check box",
+                  "4": "DATE;check box",
+                  "5": "TIME;check box",
+                  "6": "LAT_TRV_ST;check box",
+                  "7": "LON_TRV_ST;check box",
+                  "8": "LAT_TRV_FI;check box",
+                  "9": "LON_TRV_FI;check box",
+                  "10": "DRIVER_ID;check box",
+                  "11": "TRV_DIST;check box",
+                  "12": "TRV_H_METER;check box",
+                  "13": "IDLE_TIME;check box",
+                  "14": "IDLE_EVENTS;check box",
+                  "15": "SPD_TIME;check box",
+                  "16": "SPD_EVENTS;check box",
+                  "17": "MAX_SPEED;check box",
+                  "18": "AVG_SPD;check box",
+                  "19": "GPS_ODOM;check box",
+                  "20": "SPEED_HISTOGRAM;check box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ST25T CAM Report Map(1092)": [
+            {
+              "type": "edit+button",
+              "ID": "92",
+              "value": "7fffff",
+              "num": "23",
+              "max": "6",
+              "AssignList": [
+                {
+                  "0": "REPORT MAP;check box",
+                  "1": "MODEL;check box",
+                  "2": "SW_VER;check box",
+                  "3": "MSG_TYPE;check box",
+                  "4": "DATE;check box",
+                  "5": "TIME;check box",
+                  "6": "CELL_ID;check box",
+                  "7": "MCC;check box",
+                  "8": "MNC;check box",
+                  "9": "LAC;check box",
+                  "10": "RX_LVL;check box",
+                  "11": "LAT;check box",
+                  "12": "LON;check box",
+                  "13": "SPD;check box",
+                  "14": "CRS;check box",
+                  "15": "SATT;check box",
+                  "16": "FIX;check box",
+                  "17": "IN_STATE;check box",
+                  "18": "OUT_STATE;check box",
+                  "19": "PACK NUM;check box",
+                  "20": "TOTAL PACK NUM;check box",
+                  "21": "PACK SIZE;check box",
+                  "22": "PACK DATA;check box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "PRM Report Enable(1097)": [
+            {
+              "type": "combo",
+              "ID": "97",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Change Password": [
+        {
+          "info": [
+            {
+              "id": "35",
+              "tab_id": "30",
+              "visible": "1",
+              "hdr": "PWD",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Password Use(3000)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Current Password(3001)": [
+            { "type": "passwd", "ID": "1", "value": "", "max": "18" }
+          ]
+        },
+        {
+          "New Password(3002)": [
+            { "type": "passwd", "ID": "2", "value": "", "max": "18" }
+          ]
+        }
+      ]
+    },
+    {
+      "Fine Tracking": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "30",
+              "visible": "1",
+              "hdr": "FTR",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Enable Fine Tracking(3010)": [
+            {
+              "type": "combo",
+              "ID": "10",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "GPS interval for Fine Tracking(Sec.)(3011)": [
+            { "type": "edit", "ID": "11", "value": "1", "max": "1" }
+          ]
+        },
+        {
+          "GPS Count for Fine Tracking(3012)": [
+            { "type": "edit", "ID": "12", "value": "5", "max": "2" }
+          ]
+        }
+      ]
+    },
+    {
+      "Geofence Config": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "90",
+              "visible": "1",
+              "hdr": "GEOCONF",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Polygon Speed Limit(9000)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Circular Output Active(9001)": [
+            {
+              "type": "combo",
+              "ID": "1",
+              "value": "Enable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Polygon Geofence": [
+        {
+          "info": [
+            {
+              "id": "19",
+              "tab_id": "53",
+              "visible": "1",
+              "hdr": "PLC",
+              "num_type": "0",
+              "max": "30",
+              "min": "1",
+              "ptmax": "100"
+            }
+          ]
+        },
+        {
+          "Set Geofence Parameter": [
+            { "info": [{ "id": "1", "hdr": "PLG", "num_type": "0" }] },
+            {
+              "sheet": [
+                {
+                  "num": "3",
+                  "list": [{ "0": "Geo ID", "1": "IN", "2": "OUT" }]
+                }
+              ]
+            },
+            {
+              "sub": [
+                { "info": [{ "id": "1", "hdr": "PLG", "num_type": "0" }] },
+                {
+                  "Group ID": [
+                    {
+                      "id": "0",
+                      "type": "combo",
+                      "value": "0",
+                      "num": "30",
+                      "list": [{ "0": "0;1;0;2" }]
+                    }
+                  ]
+                },
+                {
+                  "IN": [
+                    {
+                      "id": "1",
+                      "type": "combo",
+                      "value": "Disable",
+                      "num": "2",
+                      "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+                    }
+                  ]
+                },
+                {
+                  "OUT": [
+                    {
+                      "id": "2",
+                      "type": "combo",
+                      "value": "Disable",
+                      "num": "2",
+                      "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+                    }
+                  ]
+                },
+                {
+                  "Polygon Speed Limit": [
+                    {
+                      "id": "6",
+                      "type": "edit_number",
+                      "value": "",
+                      "config": "9000",
+                      "max": "6"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "sub1": [
+                { "info": [{ "id": "2", "num_type": "0" }] },
+                {
+                  "Latitude": [
+                    { "id": "3", "type": "any", "value": "", "max": "14" }
+                  ]
+                },
+                {
+                  "Longitude": [
+                    { "id": "4", "type": "any", "value": "", "max": "14" }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Accessory Parameter": [
+        {
+          "info": [
+            {
+              "id": "11",
+              "tab_id": "23",
+              "visible": "1",
+              "hdr": "ECU",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "RS232 Ext1 Dev(2300)": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "None",
+              "num": "5",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;Omnicomm Fuel Sensor;0;2",
+                  "2": "2;RFID;0;2",
+                  "3": "3;Serial Camera;0;2",
+                  "4": "4;AT Cmd;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "RS232 Ext2 Dev(2301)": [
+            {
+              "type": "combo",
+              "ID": "1",
+              "value": "None",
+              "num": "5",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;Omnicomm Fuel Sensor;0;2",
+                  "2": "2;RFID;0;2",
+                  "3": "3;Serial Camera;0;2",
+                  "4": "4;AT Cmd;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "RS232 Ext1 Baudrate(2302)": [
+            {
+              "type": "combo",
+              "ID": "2",
+              "value": "None",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;2400;0;2",
+                  "2": "2;4800;0;2",
+                  "3": "3;9600;0;2",
+                  "4": "4;19200;0;2",
+                  "5": "5;38400;0;2",
+                  "6": "6;115200;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "RS232 Ext2 Baudrate(2303)": [
+            {
+              "type": "combo",
+              "ID": "3",
+              "value": "None",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;2400;0;2",
+                  "2": "2;4800;0;2",
+                  "3": "3;9600;0;2",
+                  "4": "4;19200;0;2",
+                  "5": "5;38400;0;2",
+                  "6": "6;115200;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "RS232 Ext1 Fuel Alert Level(2304)": [
+            { "type": "edit", "ID": "4", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "RS232 Ext2 Fuel Alert Level(2305)": [
+            { "type": "edit", "ID": "5", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "RS485 Fuel Baudrate(2306)": [
+            {
+              "type": "combo",
+              "ID": "6",
+              "value": "None",
+              "num": "7",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;2400;0;2",
+                  "2": "2;4800;0;2",
+                  "3": "3;9600;0;2",
+                  "4": "4;19200;0;2",
+                  "5": "5;38400;0;2",
+                  "6": "6;115200;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "RS485 Fuel1 Alert Level(2307)": [
+            { "type": "edit", "ID": "7", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "RS485 Fuel2 Alert Level(2308)": [
+            { "type": "edit", "ID": "8", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "RS485 Fuel3 Alert Level(2309)": [
+            { "type": "edit", "ID": "9", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "RS485 Fuel4 Alert Level(2310)": [
+            { "type": "edit", "ID": "10", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Expansion ADC1(2311)": [
+            {
+              "type": "combo",
+              "ID": "11",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Expansion ADC2(2312)": [
+            {
+              "type": "combo",
+              "ID": "12",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Expansion Input1 Type(2313)": [
+            {
+              "type": "combo",
+              "ID": "13",
+              "value": "None",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;Falling Edge;0;2",
+                  "2": "2;Rising Edge;0;2",
+                  "3": "3;Both Edge;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Expansion Input1 Chat(2314)": [
+            { "type": "edit", "ID": "14", "value": "1", "max": "2" }
+          ]
+        },
+        {
+          "Expansion Input2 Type(2315)": [
+            {
+              "type": "combo",
+              "ID": "15",
+              "value": "None",
+              "num": "4",
+              "list": [
+                {
+                  "0": "0;None;0;2",
+                  "1": "1;Falling Edge;0;2",
+                  "2": "2;Rising Edge;0;2",
+                  "3": "3;Both Edge;0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Expansion Input2 Chat(2316)": [
+            { "type": "edit", "ID": "16", "value": "1", "max": "2" }
+          ]
+        },
+        {
+          "Exceed Vehicle Speed(2330)": [
+            { "type": "edit", "ID": "30", "value": "120", "max": "3" }
+          ]
+        },
+        {
+          "ST20U Speed Limit(2331)": [
+            { "type": "edit", "ID": "31", "value": "0", "max": "3" }
+          ]
+        },
+        {
+          "Limit Value for Engine Coolant Temp(2332)": [
+            { "type": "edit", "ID": "32", "value": "0", "max": "3" }
+          ]
+        },
+        {
+          "Limit Value for Oil Pressure(2333)": [
+            { "type": "edit", "ID": "33", "value": "0", "max": "4" }
+          ]
+        },
+        {
+          "Limit Value for Engine RPM(2334)": [
+            { "type": "edit", "ID": "34", "value": "0", "max": "4" }
+          ]
+        }
+      ]
+    },
+    {
+      "Circular Geofence": [
+        {
+          "info": [
+            {
+              "id": "6",
+              "tab_id": "50",
+              "visible": "1",
+              "hdr": "CGF",
+              "num_type": "0",
+              "min": "1",
+              "max": "999",
+              "unit": "0"
+            }
+          ]
+        },
+        {
+          "Geo ID": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "",
+              "num": "1",
+              "list": [{ "0": "0;1;0;2" }]
+            }
+          ]
+        },
+        {
+          "Active": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "Latitude": [{ "type": "any", "ID": "0", "value": "", "max": "14" }]
+        },
+        {
+          "Longitude": [{ "type": "any", "ID": "0", "value": "", "max": "14" }]
+        },
+        { "Radius": [{ "type": "any", "ID": "0", "value": "", "max": "5" }] },
+        {
+          "IN": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "OUT": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Disable",
+              "num": "2",
+              "list": [{ "0": "0;Disable;0;2", "1": "1;Enable;0;2" }]
+            }
+          ]
+        },
+        {
+          "OUT_ACT": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "No",
+              "config": "9001",
+              "num": "9",
+              "list": [
+                {
+                  "0": "0;No;0;2",
+                  "1": "1;Output 1;0;2",
+                  "2": "2;Output 2;0;2",
+                  "3": "3;Output 3;0;2",
+                  "4": "5;Output All;0;2",
+                  "5": "6;Output 1(Keep);0;2",
+                  "6": "7;Output 2(Keep);0;2",
+                  "7": "8;Output 3(Keep);0;2",
+                  "8": "10;Output All(Keep);0;2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "OUT_ACT_DELAY": [
+            {
+              "type": "edit_number",
+              "ID": "0",
+              "value": "",
+              "config": "9001",
+              "max": "4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Command String": [
+        {
+          "info": [
+            {
+              "id": "7",
+              "tab_id": "0",
+              "visible": "1",
+              "hdr": "CMD",
+              "num_type": "0"
+            }
+          ]
+        },
+        {
+          "Command": [
+            {
+              "type": "combo",
+              "ID": "0",
+              "value": "Preset",
+              "num": "57",
+              "list": [
+                {
+                  "0": "0;Preset;0;2;0305",
+                  "1": "1;PresetP;1;1;0306",
+                  "2": "2;ReqConMntSvr;0;2;0101",
+                  "3": "3;ReqIMSI;0;2;0102",
+                  "4": "4;ReqICCID;0;2;0103",
+                  "5": "5;ReqConNtw;0;2;0104",
+                  "6": "6;ReqOwnNo;0;2;0105",
+                  "7": "7;SetGoogleMap;96;0;0202",
+                  "8": "8;ReqGoogleMap;0;2;0203",
+                  "9": "9;StatusReq;0;2;0301",
+                  "10": "10;Reset;0;2;0302",
+                  "11": "11;Reboot;0;2;0303",
+                  "12": "12;ReqVer;1;1;0304",
+                  "13": "13;Status Report to Extdev;0;2;0501",
+                  "14": "14;Enable1;0;2;0401",
+                  "15": "15;Disable1;0;2;0402",
+                  "16": "16;Enable2;0;2;0403",
+                  "17": "17;Disable2;0;2;0404",
+                  "18": "18;Enable3;0;2;0409",
+                  "19": "19;Disable3;0;2;0410",
+                  "20": "20;EraseAll;0;2;0502",
+                  "21": "21;SetOdometer;1000000000;0;0503",
+                  "22": "22;InitMsgNo;0;2;0504",
+                  "23": "23;SetHMeter;999999;0;0505",
+                  "24": "24;InitCircleGeo;0;2;0506",
+                  "25": "25;InitAllPolygonGeo;0;2;0517",
+                  "26": "26;Request Server Lock;0;2;0109",
+                  "27": "27;ReqSttAssignmap;0;2;0507",
+                  "28": "28;ReqAltAssignmap;0;2;0508",
+                  "29": "29;EnableLease;1;0;0411",
+                  "30": "30;ReqLease;0;2;0412",
+                  "31": "31;Encoding Type;1;0;0700",
+                  "32": "32;Encoding Key;16;0;0701",
+                  "33": "33;ReqST25TPreset;0;2;0620",
+                  "34": "34;ReqST25TEsnNumber;0;2;0621",
+                  "35": "35;ReqST25TReset;0;2;0622",
+                  "36": "36;ReqST25TSnapShot1;0;2;0623",
+                  "37": "37;ReqST25TSnapShot2;0;2;0624",
+                  "38": "38;SetDidOutCtrl;1;1;0420",
+                  "39": "39;GetDidOutCtrl;0;2;0421",
+                  "40": "40;Set Geofence Area Jamming;1;1;0725",
+                  "41": "41;Get Geofence Area Jamming;0;2;0726",
+                  "42": "42;Set buzzer pulse off;1;0;0738",
+                  "43": "43;Get buzzer pulse off;0;2;0739",
+                  "44": "44;Get anti theft status;0;2;0737",
+                  "45": "45;ReqAllDriver;0;2;0514",
+                  "46": "46;ReqPolyInfo;2;1;0515",
+                  "47": "47;Set immobilizer always pulsed;1;0;0749",
+                  "48": "48;Set Immob. Cycle Time;9;0;0422",
+                  "49": "49;Req Immob. Cycle;0;2;0423",
+                  "50": "50;Set immob speed limit;3;0;0750",
+                  "51": "51;InitIDPolygonGeo;5;0;0518",
+                  "52": "52;InitIDCircularGeo;5;0;0519",
+                  "53": "53;ReqCircInfo;3;0;0520",
+                  "54": "54;ActivateAntiTheft;1;1;0524",
+                  "55": "55;Req Circular ID;2;0;0526",
+                  "56": "56;InputDetectionCtrl;6;0;0426"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
