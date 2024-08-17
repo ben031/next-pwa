@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTransformConfigData } from '@/hooks/useTransformConfigData';
+import ConfigTabs from '@/components/ConfigTabs';
+import { useTransformedConfigData } from '@/hooks/useTransformConfigData';
 
 const WebSerialPage = () => {
   const [port, setPort] = useState<SerialPort | null>(null);
@@ -9,8 +10,9 @@ const WebSerialPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [jsonData, setJsonData] = useState<any>();
   // console.log(jsonData);
-  const transformedData = useTransformConfigData(jsonData?.synctrak);
-  console.log(transformedData);
+  const transformedData = useTransformedConfigData({
+    data: jsonData?.synctrak,
+  });
 
   const sendCommand = async (command: string) => {
     console.log(command);
@@ -46,7 +48,7 @@ const WebSerialPage = () => {
       console.error('There was an error opening the serial port:', error);
     }
   };
-
+  console.log(jsonData);
   const disconnectSerial = async () => {
     if (port) {
       await port.close();
@@ -54,8 +56,6 @@ const WebSerialPage = () => {
       console.log('Serial port closed');
     }
   };
-
-  const jsonParsing = async () => {};
 
   useEffect(() => {
     // 클라이언트 사이드에서 JSON 파일을 가져옴
@@ -95,31 +95,7 @@ const WebSerialPage = () => {
       <pre>{output}</pre>
       <h1>JSON Data</h1>
       <div>
-        {transformedData.map((tab, tabIndex) => (
-          <div key={tabIndex}>
-            <h2>{tab.tabName}</h2>
-            {tab.fields.map((field, fieldIndex) => (
-              <div key={fieldIndex}>
-                <label>{field.fieldName}</label>
-                {field.type === 'combo' ? (
-                  <select defaultValue={field.value}>
-                    {field.options.map((option, optionIndex) => (
-                      <option key={optionIndex} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    type="text"
-                    defaultValue={field.value}
-                    maxLength={field.max}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
+        <ConfigTabs data={jsonData.synctrak} />
       </div>
     </>
   );
