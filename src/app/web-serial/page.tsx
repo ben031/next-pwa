@@ -7,7 +7,6 @@ import { useTransformedConfigData } from '@/hooks/useTransformConfigData';
 const WebSerialPage = () => {
   const [port, setPort] = useState<SerialPort | null>(null);
   const [output, setOutput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [jsonData, setJsonData] = useState<any>();
   // console.log(jsonData);
   const transformedData = useTransformedConfigData({

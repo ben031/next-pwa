@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useTransformedConfigData } from '@/hooks/useTransformConfigData';
 import FieldRenderer from '../FieldRenderer';
-import 'tailwindcss/tailwind.css';
 
 interface ConfigTabsProps {
   data: { [key: string]: any[] }[];
