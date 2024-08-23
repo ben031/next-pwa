@@ -26,25 +26,26 @@ const sendCommand = async (command: string): Promise<string> => {
   });
 };
 
+const sendAndParseCommand = async (
+  command: string,
+  expectedCommand: string
+) => {
+  const response = await sendCommand(command);
+  const parsedResponse = parsePSTResponse(response);
+
+  if (parsedResponse && parsedResponse.command === expectedCommand) {
+    return parsedResponse;
+  }
+
+  throw new Error(`Unexpected response for command: ${command}`);
+};
+
 const WebSerialPage = () => {
   const [jsonData, setJsonData] = useState<any>();
+  const [atResponse, setAtResponse] = useState<Record<string, any>[]>([]);
   const transformedData = useTransformedConfigData({
     data: jsonData?.synctrak,
   });
-
-  const sendAndParseCommand = async (
-    command: string,
-    expectedCommand: string
-  ) => {
-    const response = await sendCommand(command);
-    const parsedResponse = parsePSTResponse(response);
-
-    if (parsedResponse && parsedResponse.command === expectedCommand) {
-      return parsedResponse;
-    }
-
-    throw new Error(`Unexpected response for command: ${command}`);
-  };
 
   useEffect(() => {
     (async () => {
@@ -53,11 +54,13 @@ const WebSerialPage = () => {
           'AT^$PSTRdy',
           'Rdy'
         );
+        setAtResponse((prev) => [...prev, parsedRdyResponse]);
         if (parsedRdyResponse) {
           const parsedVersionResponse = await sendAndParseCommand(
             'AT^$PSTVer;1416',
             'Ver'
           );
+          setAtResponse((prev) => [...prev, parsedVersionResponse]);
           if (parsedVersionResponse) {
             const data = await fetch('/data/data.json').then((response) =>
               response.json()
@@ -79,6 +82,9 @@ const WebSerialPage = () => {
     <>
       Web Serial Page
       <h1>JSON Data</h1>
+      {atResponse.map((res) => {
+        return <div key={JSON.stringify(res)}>{JSON.stringify(res)}</div>;
+      })}
       <div>
         <ConfigTabs data={jsonData.synctrak} />
       </div>
