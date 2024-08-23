@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTransformConfigData } from '@/hooks/useTransformConfigData';
+import ConfigTabs from '@/components/ConfigTabs';
+import { useTransformedConfigData } from '@/hooks/useTransformConfigData';
 import { parsePSTResponse } from '@/utils/atCommandParser';
 
 // USB 통신 시뮬레이터 함수
@@ -26,9 +27,10 @@ const sendCommand = async (command: string): Promise<string> => {
 };
 
 const WebSerialPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [jsonData, setJsonData] = useState<any>();
-  const transformedData = useTransformConfigData(jsonData?.synctrak);
+  const transformedData = useTransformedConfigData({
+    data: jsonData?.synctrak,
+  });
 
   const sendAndParseCommand = async (
     command: string,
@@ -78,31 +80,7 @@ const WebSerialPage = () => {
       Web Serial Page
       <h1>JSON Data</h1>
       <div>
-        {transformedData.map((tab, tabIndex) => (
-          <div key={tabIndex}>
-            <h2>{tab.tabName}</h2>
-            {tab.fields.map((field, fieldIndex) => (
-              <div key={fieldIndex}>
-                <label>{field.fieldName}</label>
-                {field.type === 'combo' ? (
-                  <select defaultValue={field.value}>
-                    {field.options.map((option, optionIndex) => (
-                      <option key={optionIndex} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    type="text"
-                    defaultValue={field.value}
-                    maxLength={field.max}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
+        <ConfigTabs data={jsonData.synctrak} />
       </div>
     </>
   );
