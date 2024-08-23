@@ -5,6 +5,15 @@ import ConfigTabs from '@/components/ConfigTabs';
 import { useTransformedConfigData } from '@/hooks/useTransformConfigData';
 import { parsePSTResponse } from '@/utils/atCommandParser';
 
+const fileDownload = (blob: Blob) => {
+  const url = window.URL.createObjectURL(new Blob([blob]));
+  const link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', 'mock.profile');
+  document.body.appendChild(link);
+  link.click();
+};
+
 // USB 통신 시뮬레이터 함수
 const sendCommand = async (command: string): Promise<string> => {
   return new Promise((resolve) => {
@@ -46,6 +55,7 @@ const WebSerialPage = () => {
   const transformedData = useTransformedConfigData({
     data: jsonData?.synctrak,
   });
+  const [blob, setBlob] = useState<Blob>();
 
   useEffect(() => {
     (async () => {
@@ -62,6 +72,11 @@ const WebSerialPage = () => {
           );
           setAtResponse((prev) => [...prev, parsedVersionResponse]);
           if (parsedVersionResponse) {
+            const profile = await fetch('/data/mock.profile');
+            const blobProfile = await profile.blob();
+            setBlob(blobProfile);
+            const textProfile = await blobProfile.text();
+            console.log(textProfile);
             const data = await fetch('/data/data.json').then((response) =>
               response.json()
             );
@@ -81,6 +96,16 @@ const WebSerialPage = () => {
   return (
     <>
       Web Serial Page
+      {blob && (
+        <div>
+          <button
+            className="border-blue-500 text-blue-500"
+            onClick={() => fileDownload(blob)}
+          >
+            profile 파일 다운로드
+          </button>
+        </div>
+      )}
       <h1>JSON Data</h1>
       {atResponse.map((res) => {
         return <div key={JSON.stringify(res)}>{JSON.stringify(res)}</div>;
