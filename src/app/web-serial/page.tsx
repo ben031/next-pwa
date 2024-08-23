@@ -2,66 +2,71 @@
 
 import { useEffect, useState } from 'react';
 import { useTransformConfigData } from '@/hooks/useTransformConfigData';
+import { parsePSTResponse } from '@/utils/atCommandParser';
+
+// USB 통신 시뮬레이터 함수
+const sendCommand = async (command: string): Promise<string> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      switch (command) {
+        case 'AT^$PSTRdy':
+          resolve('$PST;Rdy;UP');
+          break;
+        case 'AT^$PSTVer;1416':
+          resolve(
+            '$PST;Ver;ST4505T(M.3.0.3)_RVV_STADV_1.1.4;0;2;0;0;0;0;0;0;0;0;0;1;15'
+          );
+          break;
+        default:
+          resolve('$PST;UNKNOWN;param1;param2');
+          break;
+      }
+    }, 500); // 500ms delay to simulate async operation
+  });
+};
 
 const WebSerialPage = () => {
-  const [port, setPort] = useState<SerialPort | null>(null);
-  const [output, setOutput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [jsonData, setJsonData] = useState<any>();
-  // console.log(jsonData);
   const transformedData = useTransformConfigData(jsonData?.synctrak);
-  console.log(transformedData);
 
-  const sendCommand = async (command: string) => {
-    console.log(command);
-    if (port) {
-      console.log(command);
-      const encoder = new TextEncoder();
-      const writer = await port.writable.getWriter();
-      console.log(writer);
-      await writer.write(encoder.encode(command + '\r'));
-      writer.releaseLock();
+  const sendAndParseCommand = async (
+    command: string,
+    expectedCommand: string
+  ) => {
+    const response = await sendCommand(command);
+    const parsedResponse = parsePSTResponse(response);
+
+    if (parsedResponse && parsedResponse.command === expectedCommand) {
+      return parsedResponse;
     }
+
+    throw new Error(`Unexpected response for command: ${command}`);
   };
-
-  const connectSerial = async () => {
-    try {
-      // 직렬 포트 선택
-      const selectedPort = await navigator.serial.requestPort();
-      await selectedPort.open({ baudRate: 115200 });
-      setPort(selectedPort);
-      console.log('Serial port opened');
-
-      // 데이터 읽기
-      const reader = selectedPort.readable.getReader();
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) {
-          break;
-        }
-        console.log(new TextDecoder().decode(value));
-        setOutput((prevOutput) => prevOutput + new TextDecoder().decode(value));
-      }
-    } catch (error) {
-      console.error('There was an error opening the serial port:', error);
-    }
-  };
-
-  const disconnectSerial = async () => {
-    if (port) {
-      await port.close();
-      setPort(null);
-      console.log('Serial port closed');
-    }
-  };
-
-  const jsonParsing = async () => {};
 
   useEffect(() => {
-    // 클라이언트 사이드에서 JSON 파일을 가져옴
-    fetch('/data/data.json')
-      .then((response) => response.json())
-      .then((data) => setJsonData(data));
+    (async () => {
+      try {
+        const parsedRdyResponse = await sendAndParseCommand(
+          'AT^$PSTRdy',
+          'Rdy'
+        );
+        if (parsedRdyResponse) {
+          const parsedVersionResponse = await sendAndParseCommand(
+            'AT^$PSTVer;1416',
+            'Ver'
+          );
+          if (parsedVersionResponse) {
+            const data = await fetch('/data/data.json').then((response) =>
+              response.json()
+            );
+            setJsonData(data);
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   if (!transformedData.length) {
@@ -71,28 +76,6 @@ const WebSerialPage = () => {
   return (
     <>
       Web Serial Page
-      <div>
-        <button onClick={connectSerial}>Connect Device</button>
-      </div>
-      <div>
-        <button onClick={() => sendCommand('AT^$PSTVer;1234')}>
-          Send Command
-        </button>
-      </div>
-      <div>
-        <button onClick={() => sendCommand('AT^$PSTGetJson')}>
-          Send Command
-        </button>
-      </div>
-      <div>
-        <button onClick={() => sendCommand('AT^$ReqJsonPk;No;1')}>
-          Send Command
-        </button>
-      </div>
-      <div>
-        <button onClick={disconnectSerial}>Disconnect</button>
-      </div>
-      <pre>{output}</pre>
       <h1>JSON Data</h1>
       <div>
         {transformedData.map((tab, tabIndex) => (
